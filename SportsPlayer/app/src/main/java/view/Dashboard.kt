@@ -497,8 +497,8 @@ val playersTeamReference=FirebaseDatabase.getInstance().getReference("/PlayersTe
                                                     override fun onDataChange(p0: DataSnapshot) {
                                                         Log.d("FetchMatch","MatchId Received")
 
-                                                        val team_A_Id=p0.child("team_A")
-                                                        Log
+                                                        val team_A_Id=p0.child("team_A").value.toString()
+                                                        Log.d("FetchMatch", team_A_Id)
                                                         val team_B_Id=p0.child("team_B")
                                                         val match_date=p0.child("matchDate").value.toString()
                                                         val match_time=p0.child("matchTime").value.toString()
