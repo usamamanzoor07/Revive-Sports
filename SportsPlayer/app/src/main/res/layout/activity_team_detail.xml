@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="view.team.TeamDetailActivity"
+        android:id="@+id/layOut_TeamDetail">
+
+
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragmentContainer_TeamDetailActivity">
+    </FrameLayout>
+
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="@color/cardView"
+                android:id="@+id/app_bar_layout">
+
+
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/team_logo_TeamDetailActivity"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginStart="3dp"/>
+
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/label_LinearLayout"
+        android:layout_toRightOf="@id/team_logo_TeamDetailActivity"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/team_logo_TeamDetailActivity">
+
+    <TextView
+            android:layout_marginTop="5dp"
+            android:hint="Team City :"
+            android:layout_width="100dp"
+            android:textAlignment="textEnd"
+            android:layout_height="wrap_content"
+            android:gravity="end"/>
+
+
+    <TextView
+            android:layout_marginTop="5dp"
+            android:hint="Captain:"
+            android:layout_width="100dp"
+            android:textAlignment="textEnd"
+            android:layout_height="wrap_content"
+            android:gravity="end"/>
+
+
+</LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:orientation="vertical"
+                              android:layout_toRightOf="@id/label_LinearLayout"
+                              android:layout_marginLeft="3dp"
+                              android:layout_marginTop="10dp"
+                              android:layout_toEndOf="@id/label_LinearLayout"
+                              android:layout_marginStart="3dp">
+
+                    <TextView
+                            android:layout_marginTop="5dp"
+                            style="@style/teamNameTextStyle"
+                            android:text="City"
+                            android:textAlignment="textStart"
+                            android:layout_width="match_parent"
+                            android:id="@+id/teamCity_TeamDetailActivity"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"/>
+
+                    <TextView
+                            style="@style/teamNameTextStyle"
+                            android:layout_marginTop="5dp"
+                            android:text="Captain"
+                            android:textAlignment="textStart"
+                            android:layout_width="match_parent"
+                            android:id="@+id/teamCaptain_TeamDetailActivity"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"/>
+
+
+
+
+                </LinearLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:background="@android:color/transparent"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textAllCaps="false"
+                    app:strokeColor="@color/colorPrimary"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="2dp"
+                    android:gravity="center"
+                    app:strokeWidth="1dp"
+                    android:text="add player"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/addNewPlayer_TeamDetailActivity"
+                    >
+
+            </com.google.android.material.button.MaterialButton>
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabGravity="fill"
+                app:tabMode="fixed"
+                android:id="@+id/tabLayout"
+                style="@style/teamNameTextStyle"
+                app:tabIndicator="@color/colorAccent"
+                android:background="@color/teamCardView"
+
+        />
+
+
+        <androidx.viewpager.widget.ViewPager
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/viewPager"
+        >
+        </androidx.viewpager.widget.ViewPager>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

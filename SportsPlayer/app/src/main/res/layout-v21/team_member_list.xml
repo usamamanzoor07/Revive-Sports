@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+<com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="5dp"
+        
+        app:cardBackgroundColor="@color/cardView"
+        android:id="@+id/cardView_teamMemberList"
+>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="2dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="2dp"
+            android:id="@+id/playerImage_team_member_list"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="2dp"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/playerImage_team_member_list"
+            android:layout_toEndOf="@id/playerImage_team_member_list"
+    android:layout_marginTop="15dp"
+    android:id="@+id/playerName_labelLayout">
+        <TextView android:layout_width="55dp"
+                  android:layout_height="wrap_content"
+                  android:hint="Name :"
+                  android:textColorHint="@color/white_text"
+                  android:textAlignment="textEnd" android:gravity="end"/>
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/playerName_teamMemberList"
+                  style="@style/playerTextStyle"
+                  android:text="player Name"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    android:layout_below="@id/playerName_labelLayout"
+            android:layout_toRightOf="@id/playerImage_team_member_list"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/playerImage_team_member_list"
+
+    >
+
+        <TextView android:layout_width="55dp"
+                  android:layout_height="wrap_content"
+                  android:textAlignment="textEnd"
+                  android:hint="Phone :"
+                  android:textColorHint="@color/white_text"
+                  android:gravity="end"/>
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="phone"
+                  style="@style/playerTextStyle"
+        android:id="@+id/playerPhn_teamMemberList"/>
+    </LinearLayout>
+
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentRight="true"
+              android:layout_centerVertical="true"
+              android:layout_marginRight="10dp"
+              android:hint="City"
+              style="@style/teamNameTextStyle"
+              android:id="@+id/playerCity_teamMemberList"
+              android:layout_alignParentEnd="true" android:layout_marginEnd="10dp"/>
+        </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

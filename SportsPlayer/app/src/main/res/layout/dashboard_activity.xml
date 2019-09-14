@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+android:background="@color/white_layout">
+
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragmentContainer">
+
+    </FrameLayout>
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dashboard_layout">
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="270dp"
+                android:id="@+id/profile_cardView"
+                app:cardBackgroundColor="@color/cardView"
+                app:cardElevation="2dp"
+        >
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+            android:id="@+id/profileImage_Name_layout">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="10dp"
+                        app:civ_border_color="@color/Black"
+                        app:civ_border_width="2dp"
+                        android:src="@drawable/ic_account_circle_black_24dp"
+                        android:layout_alignParentLeft="true"
+                        android:id="@+id/profile_Image_DashboardActivity"
+                        android:layout_alignParentStart="true"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="Name"
+                        style="@style/teamNameTextStyle"
+                        android:id="@+id/playerName_DashboardActivity"
+                        android:layout_toEndOf="@id/profile_Image_DashboardActivity"
+                />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Playing Role"
+                        style="@style/teamNameTextStyle"
+                        android:id="@+id/playerRole_DashboardActivity"
+                        android:layout_below="@+id/playerName_DashboardActivity"
+                        android:layout_toEndOf="@id/profile_Image_DashboardActivity"
+                        />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_toStartOf="@+id/playerAge_DashboardActivity"
+                        android:text="Age: "
+                        style="@style/teamNameTextStyle"
+                        android:id="@+id/playerAge_text_DashboardActivity"
+
+                        />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="Age"
+                        style="@style/teamNameTextStyle"
+                        android:id="@+id/playerAge_DashboardActivity"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="30dp"
+                        />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="City: "
+                        style="@style/teamNameTextStyle"
+                        android:id="@+id/playerCity_text_DashboardActivity"
+                        android:layout_toStartOf="@+id/playerCity_DashboardActivity"
+                        android:layout_below="@+id/playerAge_text_DashboardActivity"
+
+                        />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="City:"
+                        style="@style/teamNameTextStyle"
+                        android:id="@+id/playerCity_DashboardActivity"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="30dp"
+                        android:layout_below="@+id/playerAge_DashboardActivity"
+                        />
+
+
+                <RelativeLayout android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_Image_DashboardActivity"
+                android:layout_alignParentBottom="true">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginRight="2dp"
+                    >
+                        <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="180dp"
+                                android:id="@+id/BattingCard_DashboardActivity"
+                                app:cardBackgroundColor="@color/colorPrimaryDark"
+                                app:cardElevation="10dp"
+                                app:cardCornerRadius="10dp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+
+
+                                >
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_margin="4dp"
+                                    android:src="@drawable/batsman"
+                                    android:layout_gravity="center_horizontal"
+                                    android:id="@+id/right_hand_batsman_Image_DashboardActivity"
+                                    />
+                            <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Right Hand Batsman"
+                                    android:textAlignment="center"
+                                    android:id="@+id/right_hand_batsman_text_DashboardActivity"
+                                    android:layout_marginTop="55dp"
+                                    android:textColor="@color/lightGray"
+                                    android:textSize="12sp"
+
+                                    />
+
+                            <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Runs"
+                                    android:id="@+id/textView_Runs_dashboard"
+                                    android:textAllCaps="true"
+                                    android:textAlignment="center"
+                                    android:layout_marginTop="135dp"
+                                    android:textColor="@color/lightGray"
+                                    android:textSize="24sp"
+
+                                    />
+
+                            <TextView
+                                    android:id="@+id/batting_figures_dashboard"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:text="2778"
+                                    android:textColor="@color/Black"
+                                    android:textAlignment="center"
+                                    android:textSize="30sp"
+                                    android:layout_marginTop="85dp" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="180dp"
+                                android:id="@+id/BowlingCard_DashboardActivity"
+                                android:layout_toRightOf="@+id/BattingCard_DashboardActivity"
+                                android:layout_toEndOf="@+id/BattingCard_DashboardActivity"
+                                app:cardBackgroundColor="@color/colorPrimaryDark"
+                                app:cardElevation="10dp"
+                                app:cardCornerRadius="10dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+
+
+                                >
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_margin="4dp"
+                                    android:src="@drawable/bowler"
+                                    android:layout_gravity="center_horizontal"
+                                    android:id="@+id/bowler_Image_DashboardActivity"
+                                    />
+                            <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Right Arm Bowler"
+                                    android:textAlignment="center"
+                                    android:id="@+id/bowler_text_DashboardActivity"
+                                    android:layout_marginTop="55dp"
+                                    android:textColor="@color/lightGray"
+                                    android:textSize="12sp"
+
+                                    />
+
+                            <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Wickets"
+                                    android:id="@+id/textView_wickets_dashboard"
+                                    android:textAllCaps="true"
+                                    android:textAlignment="center"
+                                    android:layout_marginTop="135dp"
+                                    android:textColor="@color/lightGray"
+                                    android:textSize="24sp"
+
+                                    />
+
+                            <TextView
+                                    android:id="@+id/bowling_figures_dashboard"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:text="506"
+                                    android:textColor="@color/Black"
+                                    android:textAlignment="center"
+                                    android:textSize="30sp"
+                                    android:layout_marginTop="85dp" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="180dp"
+                                android:id="@+id/FieldingCard_DashboardActivity"
+                                android:layout_toRightOf="@+id/BowlingCard_DashboardActivity"
+                                android:layout_toEndOf="@+id/BowlingCard_DashboardActivity"
+                                app:cardBackgroundColor="@color/colorPrimaryDark"
+                                app:cardElevation="10dp"
+                                app:cardCornerRadius="10dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+
+
+                                >
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_margin="4dp"
+                                    android:src="@drawable/fielder"
+                                    android:layout_gravity="center_horizontal"
+                                    android:id="@+id/fielder_Image_DashboardActivity"
+                                    />
+                            <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Right Arm Throw"
+                                    android:textAlignment="center"
+                                    android:id="@+id/fielder_text_DashboardActivity"
+                                    android:layout_marginTop="55dp"
+                                    android:textColor="@color/lightGray"
+                                    android:textSize="12sp"
+                                    />
+                            <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Catches"
+                                    android:id="@+id/textView_catches_dashboard"
+                                    android:textAllCaps="true"
+                                    android:textAlignment="center"
+                                    android:layout_marginTop="135dp"
+                                    android:textColor="@color/lightGray"
+                                    android:textSize="24sp"
+
+                                    />
+
+                            <TextView
+                                    android:id="@+id/catching_figures_Dashboard"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:text="225"
+                                    android:textColor="@color/Black"
+                                    android:textAlignment="center"
+                                    android:textSize="30sp"
+                                    android:layout_marginTop="85dp" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                android:id="@+id/team_list_card_view_dashboard"
+                android:elevation="10dp"
+                android:layout_margin="2dp"
+                app:cardElevation="10dp"
+                android:layout_below="@id/profile_cardView"
+                app:cardBackgroundColor="@color/cardView"
+                tools:targetApi="o" app:cardMaxElevation="10dp">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/dashboard_team_recyclerView"
+                    android:layout_marginStart="2dp"
+            
+            >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                android:elevation="10dp"
+                android:layout_margin="2dp"
+                app:cardElevation="10dp"
+                android:layout_below="@id/team_list_card_view_dashboard"
+                app:cardBackgroundColor="@color/cardView"
+                tools:targetApi="o" app:cardMaxElevation="10dp">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/match_card_recycler_view_dashboard"
+                    android:layout_marginStart="2dp"
+
+                    >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </RelativeLayout>
+
+
+    <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:id="@+id/cropedImage"
+            android:src="@mipmap/ic_launcher"
+        >
+
+
+    </ImageView>
+
+</RelativeLayout>

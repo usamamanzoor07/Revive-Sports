@@ -1,0 +1,77 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="teamNameTextStyle">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+    </style>
+    <style name="teamNameTextOndashboardStyle">
+        <item name="android:textColor">@color/white_text</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="playerTextStyle">
+        <item name="android:textColor">@color/white_text</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold|italic</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+
+    <style name="buttonStyle">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+
+
+    <style name="playerName_ProfileActivity">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/cardView</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_marginTop">23dp</item>
+        <item name="android:layout_marginLeft">22dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="playerRoll_ProfileActivity">
+        <item name="android:textColor">@color/white_text</item>
+        <item name="android:layout_marginLeft">22dp</item>
+        <item name="android:layout_below">@id/playerName_ProfileActivity</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="playerImage_ProfileActivity">
+        <item name="android:gravity">center</item>
+        <item name="android:src">@mipmap/ic_launcher</item>
+        <item name="civ_border_color">@color/white_text</item>
+        <item name="civ_border_width">2dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">23dp</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+android:orientation="vertical">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+        <TextView
+                android:id="@+id/latitude_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Latitude:"
+                android:textColor="@color/textColor"
+                android:textSize="18sp"/>
+        <TextView
+                android:id="@+id/latitude_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/latitude_label"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"/>
+
+
+        <TextView
+                android:id="@+id/longitude_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Longitude:"
+                android:layout_alignParentEnd="true"
+                android:textSize="18sp" android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"/>
+        <TextView
+                android:id="@+id/longitude_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/longitude_label"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:textSize="16sp"
+                android:layout_alignParentRight="true" android:layout_marginRight="20dp"/>
+
+
+        <TextView
+                android:id="@+id/country_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Country Name:"
+                android:textSize="18sp"
+                android:layout_below="@id/latitude_textview"
+                android:layout_marginTop="10dp"/>
+        <TextView
+                android:id="@+id/country_name_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@id/country_name_label"
+                android:textSize="16sp" android:layout_marginStart="10dp"/>
+        <TextView
+                android:id="@+id/country_code_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/longitude_textview"
+                android:text="Country Code:"
+                android:layout_alignParentRight="true"
+                android:layout_alignBaseline="@id/country_name_label"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"/>
+
+        <TextView
+                android:id="@+id/contry_code_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="40dp"
+                android:layout_below="@id/country_code_label"
+                android:layout_alignParentRight="true"
+                android:textSize="16sp" android:layout_marginRight="40dp"/>
+
+
+        <TextView
+                android:id="@+id/city_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="City Name:"
+                android:layout_below="@id/country_name_textview"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"/>
+        <TextView
+                android:id="@+id/city_textview"
+                android:layout_below="@id/city_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp" android:layout_marginStart="10dp"/>
+
+
+        <TextView
+                android:id="@+id/postal_code_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/city_textview"
+                android:layout_marginTop="10dp"
+                android:text="Postal code:"
+                android:textSize="18sp"/>
+        <TextView
+                android:id="@+id/postal_code_textview"
+                android:layout_below="@id/postal_code_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp" android:layout_marginStart="10dp"/>
+
+        <TextView
+                android:id="@+id/dialing_code_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+
+                android:layout_below="@+id/contry_code_textview"
+                android:layout_alignBaseline="@id/city_label"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Dialing Code:"
+                android:textSize="18sp"/>
+        <TextView
+                android:id="@+id/dialing_code_textview"
+                android:layout_below="@id/dialing_code_label"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="40dp"
+                android:textSize="16sp"
+                android:layout_marginRight="40dp"/>
+        <TextView
+                android:id="@+id/sim_number_label"
+                android:layout_below="@id/postal_code_textview"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="serial number:"
+                android:textSize="18sp"/>
+        <TextView
+                android:id="@+id/sim_number_textview"
+                android:layout_below="@id/sim_number_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"
+                android:layout_marginStart="10dp"/>
+
+        <TextView
+                android:id="@+id/line_number_label"
+                android:layout_below="@id/sim_number_textview"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Line number:"
+                android:textSize="18sp"/>
+        <TextView
+                android:id="@+id/line_number_textview"
+                android:layout_below="@id/line_number_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"/>
+
+        <TextView
+                android:id="@+id/device_id_label"
+                android:layout_below="@id/dialing_code_textview"
+                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Device IMEI:"
+                android:textSize="18sp"/>
+        <TextView
+                android:id="@+id/device_id_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/device_id_label"
+                android:textSize="16sp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
+
+
+        <TextView
+                android:id="@+id/address_label"
+                android:layout_below="@id/line_number_label"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address:"
+                android:textSize="18sp"/>
+        <TextView
+                android:id="@+id/address_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@id/address_label"
+                android:textSize="16sp"
+                android:layout_marginStart="10dp"/>
+
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/get_location_button"
+                android:text="get location"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="30dp"/>
+    </RelativeLayout>
+
+
+
+
+
+
+
+    
+</LinearLayout>

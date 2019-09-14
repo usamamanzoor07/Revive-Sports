@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="view.match.StartInning">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="horizontal"
+            android:id="@+id/batting_label_layout">
+
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bating : "
+                android:textSize="16sp"
+                />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:id="@+id/bating_TeamName_StartInning"
+                />
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+           app:layout_constraintTop_toBottomOf="@id/batting_label_layout"
+            android:id="@+id/selectplayer_Layout"
+            android:layout_height="wrap_content">
+
+
+        <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/ic_toys_black"
+                android:id="@+id/striker_imageButton_StartInning"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true">
+
+        </ImageButton>
+
+        <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:text="Select Striker"
+                android:textStyle="italic"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@id/striker_imageButton_StartInning"
+                android:id="@+id/striker_Name_StartInning"
+                >
+
+        </TextView>
+
+        <ImageButton
+
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/ic_toys_black"
+                android:id="@+id/non_Striker_imageButton_StartInning"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true">
+
+        </ImageButton>
+        <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:layout_marginEnd="15dp"
+                android:textStyle="italic"
+                android:text="Select Non Striker"
+                android:layout_below="@id/non_Striker_imageButton_StartInning"
+                android:id="@+id/non_striker_Name_StartInning"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp">
+
+        </TextView>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/selectplayer_Layout"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:id="@+id/bowling_label_layout"
+            >
+
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bowling : "
+                android:textSize="16sp"
+                />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:id="@+id/bowling_Team_Name_StartInning"
+                />
+
+    </LinearLayout>
+    <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/ic_toys_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bowling_label_layout"
+            android:id="@+id/bowler_imageButton_StartInning"
+            >
+    </ImageButton>
+
+    <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:text="Select Bowler"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintTop_toBottomOf="@id/bowler_imageButton_StartInning"
+            android:id="@+id/bowler_Name_StartInning"
+            >
+
+    </TextView>
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Save Inning"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:layout_constraintTop_toBottomOf="@id/bowler_Name_StartInning"
+            android:id="@+id/saveInning_Button_StartInning"
+            android:background="@color/white_layout"
+            >
+    </com.google.android.material.button.MaterialButton>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

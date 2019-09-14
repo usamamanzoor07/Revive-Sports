@@ -1,0 +1,46 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context="view.fragment.SearchPlayerToAddInTeam"
+             android:id="@+id/container"
+             android:background="@color/cardview_dark_background"
+             android:clickable="true"
+             android:focusable="true">
+
+
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    android:layout_marginHorizontal="5dp"
+    android:elevation="10dp">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+        android:orientation="vertical">
+
+            <androidx.appcompat.widget.SearchView
+                        android:layout_width="match_parent"
+                        android:id="@+id/searchView_Player"
+                        app:defaultQueryHint="Enter Phone Number"
+
+                        android:layout_height="?attr/actionBarSize">
+            </androidx.appcompat.widget.SearchView>
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/recyclerView_searchPlayer">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</FrameLayout>

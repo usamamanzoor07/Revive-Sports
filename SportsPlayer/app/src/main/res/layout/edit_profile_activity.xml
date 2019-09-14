@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DCDCDC">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:id="@+id/change_photo_edit_profile"
+                style="@style/playerImage_ProfileActivity"
+                app:civ_border_width="5dp"
+                app:civ_border_color="@color/lightGray"
+                />
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/changePhoto_Layout"
+                android:layout_below="@+id/change_photo_edit_profile"
+                android:layout_centerHorizontal="true"
+                >
+
+
+            <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change Photo"
+                    android:textAllCaps="false"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:textSize="15sp"
+                    android:background="@color/white_layout"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/change_photo_Button_EditProfileActivity"
+                    />
+
+            <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/update_photo_Button_EditProfileActivity"
+                    android:text="Update"
+                    android:textAllCaps="false"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:textSize="15sp"
+                    android:background="@color/white_layout"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
+
+                    />
+
+
+
+
+        </RelativeLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/changePhoto_Layout"
+                android:id="@+id/textInput_layout"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                >
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/gender_edit_profile"
+                        >
+
+
+                    <RadioButton
+                            android:id="@+id/male_gender_edit_profile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Male"
+                            android:layout_weight="1"
+                            android:textSize="18sp" />
+
+                    <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Female"
+                            android:layout_weight="1"
+                            android:textSize="18sp"
+                            android:id="@+id/female_gender_edit_profile"
+                            />
+                </RadioGroup>
+
+
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Name"
+                        app:hintAnimationEnabled="true"
+                        app:hintEnabled="true"
+                        app:boxStrokeColor="@android:color/holo_green_dark"
+                        android:textSize="20sp"
+                        android:textColorHint="@color/textColor"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        >
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/edit_name_edit_profile"
+                            />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Mobile Number"
+                        app:hintAnimationEnabled="true"
+                        app:hintEnabled="true"
+                        app:boxStrokeColor="@android:color/holo_green_dark"
+                        android:textSize="20sp"
+                        android:textColorHint="@color/textColor"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        >
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:id="@+id/edit_phone_number_edit_profile"
+                            />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Location"
+                        app:hintAnimationEnabled="true"
+                        app:hintEnabled="true"
+                        app:boxStrokeColor="@android:color/holo_green_dark"
+                        android:textSize="20sp"
+                        android:textColorHint="@color/textColor"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        >
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/edit_location_edit_profile"
+                            />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Date of Birth"
+                        app:hintAnimationEnabled="true"
+                        app:hintEnabled="true"
+                        app:boxStrokeColor="@android:color/holo_green_dark"
+                        android:textSize="20sp"
+                        android:textColorHint="@color/textColor"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        >
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="date"
+                            android:ems="10"
+                            android:id="@+id/date_of_birth_edit_profile"
+                            />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Playing Role"
+                        android:textSize="15sp"
+                        android:layout_margin="10dp"
+                        />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/playing_role_spinner_edit_profile"
+                        style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                        />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Batting Style"
+                        android:textSize="15sp"
+                        android:layout_margin="10dp"
+                        />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/batting_style_spinner_edit_profile"
+                        style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                        />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bowling Style"
+                        android:textSize="15sp"
+                        android:layout_margin="10dp"
+                        />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bowling_style_spinner_edit_profile"
+                        style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                        />
+
+                <com.dx.dxloadingbutton.lib.LoadingButton
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/update_button_edit_profile"
+                        android:layout_below="@+id/textInput_layout"
+                        app:lb_btnText="Update"
+                        app:lb_resetAfterFailed="true"
+                        app:lb_btnDisabledColor="@android:color/darker_gray"
+                        app:lb_cornerRadius="32"
+                        app:lb_rippleEnable="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_centerHorizontal="true"/>
+
+
+            </LinearLayout>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </RelativeLayout>
+
+</ScrollView>

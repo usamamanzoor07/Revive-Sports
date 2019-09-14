@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+android:background="#DCDCDC">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/user_profile"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/profile_pic"
+            android:clickable="true"
+            android:focusable="true"
+            app:civ_border_color="@color/DimGray"
+            app:civ_border_width="5dp"
+            android:layout_centerHorizontal="true"
+            android:onClick="selectProfileImage"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_profile"
+            android:id="@+id/textInput_layout"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+
+    >
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Full Name"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:boxStrokeColor="@android:color/holo_green_dark"
+                    android:textSize="20sp"
+                    android:textColorHint="@color/textColor"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fullnameEditText"
+                />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone Number (+923XXXXXXXXX)"
+                    app:boxStrokeColor="@android:color/holo_green_dark"
+                    android:textSize="20sp"
+                    android:textColorHint="@color/textColor"
+                    android:layout_marginTop="10dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:id="@+id/phoneNumber_field"
+                />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.dx.dxloadingbutton.lib.LoadingButton
+            android:layout_marginHorizontal="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/signUp_button"
+            android:layout_below="@+id/textInput_layout"
+            app:lb_btnText="Sign Up"
+            app:lb_resetAfterFailed="true"
+            app:lb_btnDisabledColor="@android:color/darker_gray"
+            app:lb_cornerRadius="32"
+            app:lb_rippleEnable="true"
+
+            android:layout_marginTop="26dp"
+            android:layout_centerHorizontal="true"/>
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_below="@+id/signUp_button"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:background="@android:color/holo_blue_dark"
+            app:backgroundTint="#000000"
+    android:id="@+id/black_button">
+
+    </Button>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_below="@id/black_button"
+            android:layout_marginTop="10dp"
+            app:boxStrokeColor="@android:color/holo_green_dark"
+            android:layout_marginHorizontal="25dp"
+            android:id="@+id/signIn_label"
+    >
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textAllCaps="false"
+                  android:text="Already have an Account,then Click on Sign In Button"
+                  android:textSize="18dp"
+                  android:textColor="@color/textColor"
+                android:enabled="false"
+
+
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.dx.dxloadingbutton.lib.LoadingButton
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/signIn_button"
+            android:textAllCaps="false"
+            android:textColor="@android:color/holo_blue_dark"
+            android:layout_marginHorizontal="25dp"
+            app:backgroundTint="#FFFFFF"
+            android:layout_below="@id/signIn_label"
+            android:layout_marginTop="25dp"
+            app:lb_btnText="Sign In"
+            app:lb_resetAfterFailed="true"
+            app:lb_btnDisabledColor="@android:color/white"
+            app:lb_cornerRadius="32"
+            app:lb_rippleEnable="true"
+           />
+
+
+
+</RelativeLayout>
+
+        </ScrollView>
