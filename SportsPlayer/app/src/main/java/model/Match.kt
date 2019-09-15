@@ -10,7 +10,7 @@ class Match(val matchType:String,
             val ballType:String,
             val team_A:String,
             val team_B:String,
-            val matchUpire:String,
+            val matchUmpire:String,
             val matchId:String)
 {
 constructor():this("","","","","","","","","","")
