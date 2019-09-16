@@ -19,6 +19,8 @@
     <string name="section_1">Member</string>
     <string name="section_2">Match</string>
     <string name="team_detail">Team Detail</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 
     //Playing Role Spinner Items
     <string-array name="Playing_Role">

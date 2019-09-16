@@ -16,10 +16,10 @@
             android:title="@string/action_search"
             app:showAsAction="always" />
 
-    <item android:id="@+id/profile" android:title="profile" />
-    <item android:id="@+id/upcomingMatch" android:title="upcoming match"/>
-    <item android:id="@+id/startMatch" android:title="start match"/>
-    <item android:id="@+id/myTeam" android:title="my team"/>
-    <item android:id="@+id/createTeam" android:title="create team"/>
-    <item android:id="@+id/signOut" android:title="sign out"/>
+    <item android:id="@+id/profile" android:title="Profile" />
+    <item android:id="@+id/editProfile" android:title="Edit Profile"/>
+    <item android:id="@+id/startMatch" android:title="Start Match"/>
+    <item android:id="@+id/myTeam" android:title="My Team"/>
+    <item android:id="@+id/createTeam" android:title="Create Team"/>
+    <item android:id="@+id/signOut" android:title="Sign Out"/>
 </menu>

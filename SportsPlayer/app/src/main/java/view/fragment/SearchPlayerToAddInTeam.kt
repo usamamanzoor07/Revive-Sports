@@ -1,5 +1,7 @@
 package view.fragment
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -96,6 +98,9 @@ class SearchPlayerToAddInTeam : AppCompatActivity() {
                                     ?.addOnCompleteListener { task ->
                                         if (task.isSuccessful) {
                                             toast("PlayerBasicProfile Added")
+                                            val intent = Intent()
+                                            setResult(Activity.RESULT_OK, intent)
+                                            finish()
                                             val teamRef=firebaseDatabase?.getReference("Team/$teamId")
                                             teamRef?.addListenerForSingleValueEvent(object:ValueEventListener{
                                                 override fun onCancelled(p0: DatabaseError) {

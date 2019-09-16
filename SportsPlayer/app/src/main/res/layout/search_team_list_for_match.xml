@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:elevation="5dp">
+            android:elevation="5dp"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/cardView_SearchTeamListForMatch"
+            app:strokeColor="@color/DarkOrange"
+            app:strokeWidth="2dp"
+            >
 
         <RelativeLayout android:layout_width="match_parent"
                 android:layout_height="wrap_content">

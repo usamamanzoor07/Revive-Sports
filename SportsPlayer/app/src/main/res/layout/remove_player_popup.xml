@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.github.florent37.shapeofview.shapes.BubbleView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="278dp"
+        android:layout_height="380dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_gravity="center"
+        app:shape_bubble_arrowHeight="10dp"
+        app:shape_bubble_arrowWidth="10dp"
+        app:shape_bubble_arrowPosition="bottom"
+        app:shape_bubble_borderRadius="20dp"
+        >
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+       android:background="@color/darkGray">
+
+    <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="X"
+            android:background="@drawable/ovel_shap_button"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+        android:id="@+id/cancel_text_RemovePlayerPopUp"
+            >
+    </TextView>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:civ_border_color="@color/cardview_dark_background"
+            app:civ_border_width="1dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/ic_toys_black"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/profile_Image_RemovePlayerPopUp"
+            >
+    </de.hdodenhof.circleimageview.CircleImageView>
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_Image_RemovePlayerPopUp"
+        android:id="@+id/player_phn_RemovePlayerPopUp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:text="Phone Number"
+        android:textSize="20sp"
+        >
+
+</TextView>
+
+    <LinearLayout
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:id="@+id/label_RemovePlayerPopUp"
+            android:layout_below="@id/player_phn_RemovePlayerPopUp">
+
+        <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Batting Style :"
+                android:layout_gravity="end"
+                android:textStyle="italic"
+                android:gravity="end">
+        </TextView>
+
+        <TextView
+                android:textStyle="italic"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:text="Bowling Style :">
+        </TextView>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/label_RemovePlayerPopUp"
+            android:layout_below="@id/player_phn_RemovePlayerPopUp"
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@id/label_RemovePlayerPopUp">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Player Batting Style"
+                android:layout_gravity="end"
+                android:textStyle="italic|bold"
+                android:gravity="start"
+                android:id="@+id/playerBatting_S_RemovePlayerPopUp">
+        </TextView>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:textStyle="italic|bold"
+                android:gravity="start"
+                android:text="Player Bowling Style"
+                android:id="@+id/playerBowling_S_RemovePlayerPopUp">
+        </TextView>
+    </LinearLayout>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Player City"
+            android:id="@+id/city_label_PopUp"
+            android:layout_below="@id/label_RemovePlayerPopUp">
+
+    </TextView>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textStyle="italic|bold"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="Player City"
+            android:layout_below="@id/city_label_PopUp"
+            android:id="@+id/playerCity_RemovePlayerPopUp">
+    </TextView>
+
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:text="remove"
+            android:id="@+id/removeButton_RemovePlayerPopUp"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_margin="15dp"
+            android:textAllCaps="false"
+            android:textColor="@color/cardview_dark_background"
+            >
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="cancel"
+            android:id="@+id/cancelButton_RemovePlayerPopUp"
+            android:layout_alignParentEnd="true"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_margin="15dp"
+            android:textAllCaps="false"
+            android:textColor="@color/cardview_dark_background"
+            android:layout_alignParentRight="false">
+    </com.google.android.material.button.MaterialButton>
+
+
+
+</RelativeLayout>
+</com.github.florent37.shapeofview.shapes.BubbleView>

@@ -2,7 +2,6 @@ package view
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
@@ -11,7 +10,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
-import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.FragmentTransaction
@@ -27,18 +25,15 @@ import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
-import com.yalantis.ucrop.UCrop
 import kotlinx.android.synthetic.main.dashboard_activity.*
 import kotlinx.android.synthetic.main.match_card_on_dashboard.view.*
 import kotlinx.android.synthetic.main.my_team_list_ondashboard.view.*
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 import view.ProfilePackage.Profile
 import view.fragment.SearchTeamFragment
 import view.match.StartMatchActivity
-import view.match.ui.MatchScoring
+import view.matchscoring.MatchScoringActivity
 import view.team.TeamDetailActivity
-import java.io.File
 
 @Suppress("DEPRECATION")
 class Dashboard:AppCompatActivity(), SearchTeamFragment.OnFragmentInteractionListener
@@ -85,27 +80,10 @@ class Dashboard:AppCompatActivity(), SearchTeamFragment.OnFragmentInteractionLis
         }
 
             cropedImage.setOnClickListener {
-                startActivity<MatchScoring>()
+                startActivity<Profile>()
             }
 
-
-/**
-            val timePicker:TimePickerDialog= TimePickerDialog(this,object:TimePickerDialog.OnTimeSetListener{
-                override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                }
-
-            },hh,mint,false)
-            timePicker.show()
-
-**/
-
-
-
-
-
-
-            //retrieve team data from the database
+        //retrieve team data from the database
         fetchTeamFromDatabase()
 
         //retrieve team data from the database
@@ -130,66 +108,8 @@ class Dashboard:AppCompatActivity(), SearchTeamFragment.OnFragmentInteractionLis
         if (data != null && resultCode == Activity.RESULT_OK)
 
             when(requestCode){
-                CODE_IMAGE_GALLERY->{
-                   val imageUri=data.data
 
-                    if(imageUri!=null)
-                    {
-                        startCrop(imageUri)
-                    }
-
-                }
-                UCrop.REQUEST_CROP->{
-                    val imageUriResultCrop=UCrop.getOutput(data)
-                    if(imageUriResultCrop != null)
-                    {
-                        cropedImage.setImageURI(imageUriResultCrop)
-                    }
-
-                }
             }
-
-    }
-
-    fun startCrop(@NonNull uri:Uri){
-
-        var destinationFileName=SAMPLE_CROPPED_IMAGE_NAME
-        destinationFileName+=".jpg"
-
-        val uCrop:UCrop= UCrop.of(uri, Uri.fromFile(File(cacheDir,destinationFileName)))
-        uCrop.withAspectRatio(16f, 9f)
-//        uCrop.withAspectRatio(3,4)
-//        uCrop.useSourceImageAspectRatio()
-//        uCrop.withAspectRatio(2,3)
-//        uCrop.withAspectRatio(16,9)
-        uCrop.withMaxResultSize(450,450)
-        uCrop.withOptions(getCropOptions())
-        uCrop.start(this)
-
-
-    }
-
-    fun getCropOptions():UCrop.Options
-    {
-        val options=UCrop.Options()
-
-        options.setCompressionQuality(70)
-
-        //Compression Type
-        options.setCompressionFormat(Bitmap.CompressFormat.PNG)
-       //  options.setCompressionFormat(Bitmap.CompressFormat.JPEG)
-
-        //Ui
-        options.setHideBottomControls(false)
-        options.setFreeStyleCropEnabled(true)
-
-        //Color
-        options.setStatusBarColor(resources.getColor(R.color.colorPrimary))
-        options.setToolbarColor(resources.getColor(R.color.colorPrimaryDark))
-
-        options.setToolbarTitle("Cropped Image")
-
-        return options
 
     }
 
@@ -256,7 +176,7 @@ class Dashboard:AppCompatActivity(), SearchTeamFragment.OnFragmentInteractionLis
             }
         })
 
-        val playerRefCatches= FirebaseDatabase.getInstance().getReference("/FieldingStats/$uid")
+        val playerRefCatches= FirebaseDatabase.getInstance().getReference("/BattingStats/$uid")
         playerRefCatches.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -265,9 +185,9 @@ class Dashboard:AppCompatActivity(), SearchTeamFragment.OnFragmentInteractionLis
             override fun onDataChange(p0: DataSnapshot) {
 
 
-                val playerCatches=p0.child("catches").value.toString()
+                val playerMatches=p0.child("matches").value.toString()
 
-                catching_figures_Dashboard.text=playerCatches
+                matches_figures_Dashboard.text=playerMatches
 
 
             }
@@ -328,9 +248,9 @@ class Dashboard:AppCompatActivity(), SearchTeamFragment.OnFragmentInteractionLis
 
         when(item?.itemId)
         {
-            R.id.profile->startActivity<EditProfile>()
-            R.id.upcomingMatch->{
-                startActivity<Profile>()
+            R.id.profile->startActivity<Profile>()
+            R.id.editProfile->{
+                startActivity<EditProfile>()
             }//Upcoming Matches Activity
             R.id.startMatch->{
                startActivity<StartMatchActivity>()
@@ -424,7 +344,7 @@ val playersTeamReference=FirebaseDatabase.getInstance().getReference("/PlayersTe
                                val green=(10..230).random()
                                val blue=(10..230).random()
                                val color= Color.argb(255,red,green,blue)
-                               teamAdapter.add(MyTeamOnDashboard(teamLogo,teamName,teamCaptain,teamCity,team_Id,color))
+                               teamAdapter.add(MyTeamOnDashboard(teamLogo,teamName,teamCaptain,teamCity,team_Id))
                            }
 
                        })
@@ -442,14 +362,12 @@ val playersTeamReference=FirebaseDatabase.getInstance().getReference("/PlayersTe
                             var teamName:String,
                             var teamCaptain:String,
                             var teamCity:String,
-                            var teamId:String,
-                            val color:Int):Item<ViewHolder>(){
+                            var teamId:String):Item<ViewHolder>(){
         override fun getLayout(): Int {
             return R.layout.my_team_list_ondashboard
         }
 
         override fun bind(viewHolder: ViewHolder, position: Int) {
-            viewHolder.itemView.team_logo_cardView.setCardBackgroundColor(color)
             val logo=viewHolder.itemView.findViewById<ImageView>(R.id.my_team_logo_dashboard)
             Picasso.get().load(teamLogo).into(logo)
             viewHolder.itemView.my_team_name_dashboard.text=teamName

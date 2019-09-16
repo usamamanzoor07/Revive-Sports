@@ -1,22 +1,23 @@
 package view.match.ui
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import view.match.StartMatchActivity
 import com.example.sportsplayer.R
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.android.material.card.MaterialCardView
 import com.google.firebase.database.*
 import com.pawegio.kandroid.inflateLayout
 import com.pawegio.kandroid.onQueryChange
@@ -24,7 +25,8 @@ import com.pawegio.kandroid.toast
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_search_team_for_match.*
 import model.Team
-
+import org.jetbrains.anko.find
+import view.match.SelectSquadActivity
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
@@ -33,9 +35,12 @@ import model.Team
  */
 class SearchTeamForMatch : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
-
     private var firebaseDatabase: FirebaseDatabase? = null
     lateinit var ref: DatabaseReference
+    val SQUAD_RC = 1
+    lateinit var team_Id: String
+    lateinit var team_name: String
+    lateinit var team_logo: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,10 +85,36 @@ class SearchTeamForMatch : Fragment() {
     }
     interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onFragmentInteraction(teamId:String,teamLogo:String,teamName:String)
+        fun onFragmentInteraction(teamId:String,teamLogo:String,teamName:String,teamSquad:ArrayList<String>)
     }
 
 
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Log.d("XXXX_AvailableTeams_F", "onActivityResult called")
+
+        if (data != null && resultCode == Activity.RESULT_OK)
+            when (requestCode) {
+                SQUAD_RC -> {
+                    val bundle = data.extras
+                    val squadList = bundle.getStringArrayList("list") as ArrayList<String>
+                    toast("Fragment_OnActivityResult")
+                    listener?.onFragmentInteraction(team_Id, team_logo, team_name,squadList)
+                    activity?.onBackPressed()
+
+                }
+            }
+    }
+
+
+
+    //Launch SelectSquadActivity
+    private fun selectSquadForMatch(teamId: String) {
+        val intent = Intent(activity,SelectSquadActivity::class.java)
+        intent.putExtra("teamId", teamId)
+        this.startActivityForResult(intent, SQUAD_RC)
+    }
 
 
 
@@ -98,6 +129,7 @@ class SearchTeamForMatch : Fragment() {
             .setQuery(query!!,Team::class.java)
             .setLifecycleOwner(this)
             .build()
+        var card:MaterialCardView
 
         val firebaseRecyclerAdapter = object: FirebaseRecyclerAdapter<Team, SearchTeamViewHolder>(option)
         {
@@ -109,30 +141,47 @@ class SearchTeamForMatch : Fragment() {
             }
 
             override fun onBindViewHolder(teamViewHolder: SearchTeamViewHolder, position: Int, model:Team) {
-                teamViewHolder.itemView.setOnClickListener {
-                    //view-> listener for item click
+
+                card=teamViewHolder.itemView.find(R.id.cardView_SearchTeamListForMatch)
+                card.setOnClickListener { view ->
                     run {
+                        val v = view as MaterialCardView
+                        v.isChecked = !v.isChecked
+                        if (v.isChecked) {
 
-                        val teamId=model.teamId
-                        val teamLogo=model.teamLogo
-                        val teamName=model.teamName
-                        listener?.onFragmentInteraction(teamId,teamLogo!!,teamName)
-                        activity?.onBackPressed()
+                            toast("select Team")
+                            AlertDialog.Builder(activity)
+                                .setCancelable(true)
+                                .setTitle("Conformation")
+                                .setMessage("Do you want to select ${model.teamName}")
+                                .setNegativeButton("No") { dialog, _ ->
+                                    run {
+                                        card.isChecked = false
+                                        dialog.dismiss()
+                                    }
+                                }.setPositiveButton("Yes") { dialog, _ ->
+                                    run {
 
+                                        team_Id = model.teamId
+                                        team_name = model.teamName
+                                        team_logo = model.teamLogo!!
+                                        selectSquadForMatch(team_Id)
 
-                        /**
-                        activity?.supportFragmentManager
-                        ?.beginTransaction()
-                        ?.add(R.id.fragmentContainer,teamDetailFragment)
-                        ?.addToBackStack(null)
-                        ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        ?.commit()
-                         **/
-                        recyclerView_SearchTeamForMatch.adapter=null
+                                        /**
+                                        val teamLogo = item.teamLogo
+                                        val teamName = item.teamFullName
+                                        listener?.onFragmentInteraction(teamId, teamLogo, teamName)
+                                        activity?.onBackPressed()
+                                         **/
+                                        toast("selected")
+                                        dialog.dismiss()
+                                    }
+                                }.create().show()
 
-                        toast("Clicked")
+                        }
                     }
                 }
+
                 val newTeam = getRef(position).key.toString()
                 ref.child(newTeam).addValueEventListener(object: ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {

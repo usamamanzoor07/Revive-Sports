@@ -152,6 +152,7 @@ private val SAMPLE_CROPPED_IMAGE_NAME="SampleCropImage"
                     progressDialog.dismiss()
 
                     startActivity<EditProfile>()
+                    finish()
                     //go to dashboard
                 }
             }?.addOnFailureListener { exception ->
@@ -175,7 +176,7 @@ private val SAMPLE_CROPPED_IMAGE_NAME="SampleCropImage"
                            Log.d("UserExist_Key", u.key)
                            if (u.key == playerId) {
                                exist=true
-                               longToast("record Found")
+                               longToast("Player Found")
                                startActivity<Dashboard>()
                                break
                                }

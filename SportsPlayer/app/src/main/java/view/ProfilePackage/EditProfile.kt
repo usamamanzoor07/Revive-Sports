@@ -125,10 +125,10 @@ class EditProfile:AppCompatActivity(){
 
     override fun onStart() {
         super.onStart()
-        playingRole = ""
-        battingStyle = ""
-        bowlingStyle = ""
-        gender = ""
+        playingRole = resources.getStringArray(R.array.Playing_Role)[0]
+        battingStyle = resources.getStringArray(R.array.Batting_Style)[0]
+        bowlingStyle = resources.getStringArray(R.array.Bowling_Style)[0]
+        gender =resources.getString(R.string.male)
 
     }
 
@@ -198,7 +198,7 @@ class EditProfile:AppCompatActivity(){
         //Color
         options.setStatusBarColor(resources.getColor(R.color.colorPrimary))
         options.setToolbarColor(resources.getColor(R.color.colorPrimaryDark))
-        options.setToolbarTitle("Crop Team Logo")
+        options.setToolbarTitle("Crop Image")
         return options
     }
 

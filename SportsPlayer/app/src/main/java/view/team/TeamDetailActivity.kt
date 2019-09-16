@@ -1,11 +1,14 @@
 package view.team
 
+import android.app.Activity
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sportsplayer.R
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -31,7 +34,7 @@ class TeamDetailActivity : AppCompatActivity(), View.OnClickListener,
     override fun onFragmentInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
+         lateinit var captainId:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +66,7 @@ class TeamDetailActivity : AppCompatActivity(), View.OnClickListener,
                      TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                  }
                  override fun onDataChange(p0: DataSnapshot) {
-                     val captainId=p0.child("captainId").value.toString()
+                     captainId=p0.child("captainId").value.toString()
                      val playerRef= FirebaseDatabase.getInstance().getReference("/PlayerBasicProfile/$captainId")
                      playerRef.addListenerForSingleValueEvent(object: ValueEventListener {
                          override fun onCancelled(p0: DatabaseError) {
@@ -74,24 +77,10 @@ class TeamDetailActivity : AppCompatActivity(), View.OnClickListener,
 
                              val captainName=p0.child("name").value.toString()
                              teamCaptain_TeamDetailActivity.text=captainName
-
-
-
-
                          }
                      })
-
-
-
-
                  }
              })
-
-
-
-
-
-
          }
 
 
@@ -118,24 +107,47 @@ class TeamDetailActivity : AppCompatActivity(), View.OnClickListener,
 
          }
 
-    override fun onStart() {
-        super.onStart()
+         private fun checkCaptainValidity()
+         {
+             val currentPlayer= FirebaseAuth.getInstance().uid
+             if(currentPlayer==captainId)
+             { val teamId=intent.getStringExtra("teamId")
+                 startActivityForResult<SearchPlayerToAddInTeam>(SEARCH_PLAYER,"teamId" to teamId)
+             }else {
+                 alert {
+                     title = "Captain Authentication"
+                     message = "Permission Denied,only Team Captain can add new player"
+                     okButton { dialog -> dialog.dismiss() }
+                 }.show()
+             }
+
+         }
+         override fun onClick(view: View?) {
+             when(view?.id)
+             {
+                 R.id.addNewPlayer_TeamDetailActivity->{
+                     checkCaptainValidity()
+                 }
+
+             }
+         }
+
+         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+             super.onActivityResult(requestCode, resultCode, data)
+
+             if(resultCode== Activity.RESULT_OK && data !=null)
+             {when(requestCode)
+             {
+                 SEARCH_PLAYER->{setViewsContent()}
+
+             }
+             }
+         }
+
+         companion object{
+             const val SEARCH_PLAYER=1
+         }
 
 
-    }
 
-    override fun onClick(view: View?) {
-        when(view?.id)
-        {
-            R.id.addNewPlayer_TeamDetailActivity->{
-                val teamId=intent.getStringExtra("teamId")
-                Log.d("Team_Detail_Activity",teamId)
-                startActivity<SearchPlayerToAddInTeam>("teamId" to teamId)
-
-            }
-
-        }
-    }
-
-
-}
+     }

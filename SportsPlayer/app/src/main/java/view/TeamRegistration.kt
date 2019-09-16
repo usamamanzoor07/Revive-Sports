@@ -40,7 +40,6 @@ class TeamRegistration:AppCompatActivity(),View.OnClickListener
     var selectedLogoUri: Uri?=null
     private var mAuth: FirebaseAuth? = null
     private var myStorageReference: StorageReference? = null
-    val PICK_IMAGE=1
     var databaseRef:FirebaseDatabase?=null
     lateinit var level:String
     private val CODE_LOGO_GALLERY=1
@@ -139,7 +138,7 @@ class TeamRegistration:AppCompatActivity(),View.OnClickListener
 
 
 
-    //function to upload the profile image
+    //function to upload Team Logo
     private fun uploadTeamLogo(){
         val dialog=progressDialog(message = "please wait a bit", title = "uploading image")
         dialog.show()

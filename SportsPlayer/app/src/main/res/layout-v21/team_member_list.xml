@@ -64,14 +64,14 @@
         <TextView android:layout_width="55dp"
                   android:layout_height="wrap_content"
                   android:textAlignment="textEnd"
-                  android:hint="Phone :"
+                  android:hint="Player Role"
                   android:textColorHint="@color/white_text"
                   android:gravity="end"/>
         <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:text="phone"
+                  android:text="Player Role"
                   style="@style/playerTextStyle"
-        android:id="@+id/playerPhn_teamMemberList"/>
+        android:id="@+id/playerRole_teamMemberList"/>
     </LinearLayout>
 
 

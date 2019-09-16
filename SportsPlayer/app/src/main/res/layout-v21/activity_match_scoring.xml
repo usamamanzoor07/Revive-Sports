@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:backgroundTint="@color/DarkSlateGray"
+                android:id="@+id/background_dark_color"
+
+                >
+
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/score_relative_layout"
+                    >
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/team_current_score"
+                        android:hint="0"
+                        android:textSize="65sp"
+                        android:textColor="@color/lightGray"
+                        android:textColorHint="@color/lightGray"
+                        >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/score_separator"
+                        android:hint="/"
+                        android:layout_toEndOf="@+id/team_current_score"
+                        android:textSize="65sp"
+                        android:textColor="@color/lightGray"
+                        android:textColorHint="@color/lightGray"
+                        android:layout_toRightOf="@+id/team_current_score">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/team_current_wickets"
+                        android:layout_toEndOf="@+id/score_separator"
+                        android:hint="0"
+                        android:textSize="65sp"
+                        android:textColor="@color/lightGray"
+                        android:textColorHint="@color/lightGray"
+                        android:layout_toRightOf="@+id/score_separator">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bracket_open_overs"
+                        android:layout_toEndOf="@+id/team_current_wickets"
+                        android:layout_marginTop="90dp"
+                        android:layout_marginStart="10dp"
+                        android:hint="("
+                        android:layout_centerInParent="true"
+                        android:textSize="20sp"
+                        android:textColor="@color/lightGray"
+                        android:textColorHint="@color/lightGray"
+                        android:layout_toRightOf="@+id/team_current_wickets"
+                        android:layout_marginLeft="10dp">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/team_current_overs_played"
+                        android:layout_toEndOf="@+id/bracket_open_overs"
+                        android:hint="0"
+                        android:layout_centerInParent="true"
+                        android:textSize="20sp"
+                        android:textColor="@color/lightGray"
+                        android:textColorHint="@color/lightGray"
+                        android:layout_toRightOf="@+id/bracket_open_overs">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/overs_separator"
+                        android:layout_toEndOf="@+id/team_current_overs_played"
+                        android:hint="/"
+                        android:layout_centerInParent="true"
+                        android:textSize="20sp"
+                        android:textColor="@color/lightGray"
+                        android:textColorHint="@color/lightGray"
+                        android:layout_toRightOf="@+id/team_current_overs_played">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/team_total_overs"
+                        android:layout_toEndOf="@+id/overs_separator"
+                        android:layout_centerInParent="true"
+                        android:hint="20"
+                        android:textSize="20sp"
+                        android:textColor="@color/lightGray"
+                        android:textColorHint="@color/lightGray"
+                        android:layout_toRightOf="@+id/overs_separator">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bracket_close_overs"
+                        android:layout_toEndOf="@+id/team_total_overs"
+                        android:layout_centerInParent="true"
+                        android:hint=")"
+                        android:textSize="20sp"
+                        android:textColor="@color/lightGray"
+                        android:textColorHint="@color/lightGray"
+                        android:layout_toRightOf="@+id/team_total_overs">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+
+            </RelativeLayout>
+
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="350dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_share_black_24dp"
+                        android:layout_marginLeft="350dp"
+                        tools:ignore="RtlCompat">
+
+                </androidx.appcompat.widget.AppCompatImageButton>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/score_detail_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center"
+                        android:hint="Lahore Qalandar Needs 150 runs from 20 overs"
+                        android:textColor="@color/lightGray"
+                        android:textColorHint="@color/lightGray"
+                        android:textSize="15sp">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </FrameLayout>
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:gravity="center"
+                    >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Partnership"
+                        android:textColor="@color/White"
+                        android:textSize="18sp"
+                        android:id="@+id/partnership_textView"
+                        >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/White"
+                        android:textSize="15sp"
+                        android:id="@+id/partnership_runs"
+                        android:layout_below="@+id/partnership_textView"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginLeft="30dp">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="("
+                        android:textColor="@color/White"
+                        android:textSize="15sp"
+                        android:id="@+id/bracket_open_partnership_balls"
+                        android:layout_below="@+id/partnership_textView"
+                        android:layout_toEndOf="@+id/partnership_runs"
+                        android:layout_toRightOf="@+id/partnership_runs">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/White"
+                        android:textSize="15sp"
+                        android:id="@+id/partnership_balls_played"
+                        android:layout_below="@+id/partnership_textView"
+                        android:layout_toEndOf="@+id/bracket_open_partnership_balls"
+                        android:layout_toRightOf="@+id/bracket_open_partnership_balls">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=")"
+                        android:textColor="@color/White"
+                        android:textSize="15sp"
+                        android:id="@+id/bracket_close_partnership_balls"
+                        android:layout_below="@+id/partnership_textView"
+                        android:layout_toEndOf="@+id/partnership_balls_played"
+                        android:layout_toRightOf="@+id/partnership_balls_played">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="@color/White"
+                        android:textSize="15sp"
+                        android:id="@+id/partnership_star"
+                        android:layout_below="@+id/partnership_textView"
+                        android:layout_toEndOf="@+id/bracket_close_partnership_balls"
+                        android:layout_toRightOf="@+id/bracket_close_partnership_balls">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                    android:layout_width="210dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/DarkGoldenrod"
+                    android:id="@+id/batsman_1_card"
+                    >
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Muhammad Ehsan Ul Haq"
+                            android:textSize="15sp"
+                            android:id="@+id/batsman_1_name"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/batsman_1_score"
+                            android:layout_below="@+id/batsman_1_name"
+                            android:layout_marginStart="10dp"
+                            android:hint="0"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_marginLeft="10dp">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/bracket_open_balls_1"
+                            android:layout_below="@+id/batsman_1_name"
+                            android:layout_toEndOf="@+id/batsman_1_score"
+                            android:hint="("
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/batsman_1_score">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/batsman_1_balls_played"
+                            android:layout_below="@+id/batsman_1_name"
+                            android:layout_toEndOf="@+id/bracket_open_balls_1"
+                            android:hint="0"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/bracket_open_balls_1">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/bracket_close_balls_1"
+                            android:layout_below="@+id/batsman_1_name"
+                            android:layout_toEndOf="@+id/batsman_1_balls_played"
+                            android:hint=")"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/batsman_1_balls_played">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                    android:layout_width="210dp"
+                    android:layout_height="50dp"
+                    android:layout_toEndOf="@+id/batsman_1_card"
+                    android:backgroundTint="@color/DarkGoldenrod"
+                    android:id="@+id/batsman_2_card"
+                    android:layout_toRightOf="@+id/batsman_1_card">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Muhammad Usama"
+                            android:textSize="15sp"
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/batsman_2_name"
+                            android:layout_marginLeft="10dp">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/batsman_2_score"
+                            android:layout_below="@+id/batsman_2_name"
+                            android:hint="0"
+                            android:layout_marginStart="10dp"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_marginLeft="10dp">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/bracket_open_balls_2"
+                            android:layout_below="@+id/batsman_2_name"
+                            android:layout_toEndOf="@+id/batsman_2_score"
+                            android:hint="("
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/batsman_2_score">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/batsman_2_balls_played"
+                            android:layout_below="@+id/batsman_2_name"
+                            android:layout_toEndOf="@+id/bracket_open_balls_2"
+                            android:hint="0"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/bracket_open_balls_2">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/bracket_close_balls_2"
+                            android:layout_below="@+id/batsman_2_name"
+                            android:layout_toEndOf="@+id/batsman_2_balls_played"
+                            android:hint=")"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/batsman_2_balls_played">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_below="@+id/batsman_1_card"
+                    android:backgroundTint="@color/DimGray"
+                    android:id="@+id/background_bowling_bar"
+                    >
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Muhammad Ehsan Ul Haq"
+                            android:textColor="@color/lightGray"
+                            android:textSize="15sp"
+                            android:id="@+id/bowler_name"
+                            >
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/no_overs_bowled"
+                            android:layout_toEndOf="@+id/bowler_name"
+                            android:layout_marginStart="150dp"
+                            android:hint="0"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/bowler_name"
+                            android:layout_marginLeft="150dp">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/dash_separator_1"
+                            android:layout_toEndOf="@+id/no_overs_bowled"
+                            android:hint="-"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/no_overs_bowled">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/maiden_overs"
+                            android:layout_toEndOf="@+id/dash_separator_1"
+                            android:hint="0"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/dash_separator_1">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/dash_separator_2"
+                            android:layout_toEndOf="@+id/maiden_overs"
+                            android:hint="-"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/maiden_overs">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/runs_concede"
+                            android:layout_toEndOf="@+id/dash_separator_2"
+                            android:hint="0"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/dash_separator_2">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/dash_separator_3"
+                            android:layout_toEndOf="@+id/runs_concede"
+                            android:hint="-"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/runs_concede">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/bowler_wickets"
+                            android:layout_toEndOf="@+id/dash_separator_3"
+                            android:hint="0"
+                            android:textSize="15sp"
+                            android:textColor="@color/lightGray"
+                            android:textColorHint="@color/lightGray"
+                            android:layout_toRightOf="@+id/dash_separator_3">
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="5dp"
+                            android:elevation="10dp"
+                            android:layout_margin="2dp"
+                            app:cardElevation="10dp"
+                            android:layout_below="@id/bowler_name"
+                            app:cardBackgroundColor="@color/cardView"
+                            tools:targetApi="o"
+                            app:cardMaxElevation="10dp">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="2dp"
+                                android:id="@+id/ball_by_ball_score_recyclerView"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginLeft="2dp">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:elevation="10dp"
+                    android:backgroundTint="@color/LightSlateGray"
+                    android:text="3"
+                    android:textColor="@color/White"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:id="@+id/threeRuns"
+                    >
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="4
+                Four"
+                    android:textColor="@color/Orange"
+                    android:backgroundTint="@color/LightSlateGray"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:layout_toEndOf="@id/threeRuns"
+                    android:id="@+id/fourRuns"
+                    android:layout_toRightOf="@id/threeRuns">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="6
+                SIX"
+                    android:textColor="@color/Yellow"
+                    android:textAlignment="center"
+                    android:backgroundTint="@color/LightSlateGray"
+                    android:textSize="20sp"
+                    android:layout_toEndOf="@+id/fourRuns"
+                    android:id="@+id/sixRuns"
+                    android:layout_toRightOf="@+id/fourRuns">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="@color/LightSlateGray"
+                    android:text="0"
+                    android:textColor="@color/White"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:id="@+id/ZeroRun"
+                    android:layout_below="@+id/threeRuns"
+                    >
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="@color/LightSlateGray"
+                    android:text="1"
+                    android:textColor="@color/White"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:id="@+id/oneRun"
+                    android:layout_below="@+id/fourRuns"
+                    android:layout_toEndOf="@+id/ZeroRun"
+                    android:layout_toRightOf="@+id/ZeroRun">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="@color/LightSlateGray"
+                    android:text="2"
+                    android:textColor="@color/White"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:id="@+id/twoRuns"
+                    android:layout_below="@+id/sixRuns"
+                    android:layout_toEndOf="@+id/oneRun"
+                    android:layout_toRightOf="@+id/oneRun">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:backgroundTint="@color/Silver"
+                    android:text="WD"
+                    android:textColor="@color/DimGray"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:id="@+id/wideBall"
+                    android:layout_below="@+id/ZeroRun"
+                    >
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:backgroundTint="@color/Silver"
+                    android:text="NB"
+                    android:textColor="@color/DimGray"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:id="@+id/noBall"
+                    android:layout_below="@+id/oneRun"
+                    android:layout_toEndOf="@+id/wideBall"
+                    android:layout_toRightOf="@+id/wideBall">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:backgroundTint="@color/Silver"
+                    android:text="BYE"
+                    android:textColor="@color/DimGray"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:id="@+id/byeRuns"
+                    android:layout_below="@+id/twoRuns"
+                    android:layout_toEndOf="@+id/noBall"
+                    android:layout_toRightOf="@+id/noBall">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:backgroundTint="@color/Silver"
+                    android:text="UNDO"
+                    android:textColor="@color/colorAccent"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:id="@+id/undo"
+                    android:layout_toEndOf="@+id/sixRuns"
+                    android:layout_toRightOf="@+id/sixRuns">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:backgroundTint="@color/Silver"
+                    android:text="5,7"
+                    android:textColor="@color/DimGray"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:id="@+id/fiveOrSevenRuns"
+                    android:layout_below="@+id/undo"
+                    android:layout_toEndOf="@+id/twoRuns"
+                    android:layout_toRightOf="@+id/twoRuns">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:backgroundTint="@color/Silver"
+                    android:text="OUT"
+                    android:textColor="#732732"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:id="@+id/out"
+                    android:layout_below="@+id/fiveOrSevenRuns"
+                    android:layout_toEndOf="@+id/twoRuns"
+                    android:layout_toRightOf="@+id/twoRuns">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:backgroundTint="@color/Silver"
+                    android:text="LB"
+                    android:textColor="@color/DimGray"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:id="@+id/legByes"
+                    android:layout_below="@+id/out"
+                    android:layout_toEndOf="@+id/byeRuns"
+                    android:layout_toRightOf="@+id/byeRuns">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>

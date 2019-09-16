@@ -14,9 +14,16 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:id="@+id/cardView_Available_team_list"
+            android:longClickable="true"
             app:cardElevation="2dp"
             app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/DarkSlateGray"
             android:layout_weight="0.5"
+            android:clickable="true"
+            android:checkable="true"
+            app:checkedIcon="@drawable/ic_check_black_24dp"
+            app:strokeColor="@color/DarkOrange"
+            app:strokeWidth="2dp"
             >
         <TextView
                 android:layout_width="match_parent"

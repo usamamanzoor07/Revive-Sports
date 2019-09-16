@@ -92,13 +92,14 @@
                             android:id="@+id/male_gender_edit_profile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Male"
+                            android:text="@string/male"
+                            android:checked="true"
                             android:layout_weight="1"
                             android:textSize="18sp" />
 
                     <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Female"
+                            android:text="@string/female"
                             android:layout_weight="1"
                             android:textSize="18sp"
                             android:id="@+id/female_gender_edit_profile"

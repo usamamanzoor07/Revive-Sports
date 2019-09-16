@@ -28,15 +28,90 @@
     </androidx.recyclerview.widget.RecyclerView>
 
 
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView_TossActivity"
+        android:layout_marginTop="4dp"
+            >
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="Toss won Team Elected To"
+                android:id="@+id/teamElectecd_label"
+                android:textSize="20sp"
+             android:layout_alignParentTop="true"
+                />
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/teamElectecd_label"
+        android:id="@+id/battin_bowling_layout"
+android:layout_margin="10dp"
+        >
+    //Bowling Card
+        <com.google.android.material.card.MaterialCardView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:checkable="true"
+                app:checkedIcon="@drawable/team_ready_check"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                app:strokeColor="@color/Green"
+                app:strokeWidth="2dp"
+                app:cardElevation="5dp"
+                android:id="@+id/bowling_Card_TossActivity"
+                >
+
+            <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:backgroundTint="@color/GhostWhite"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:text="Bowling"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    />
+        </com.google.android.material.card.MaterialCardView>
 
 
 
 
+//Batting Card
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:checkable="true"
+            app:checkedIcon="@drawable/team_ready_check"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            app:strokeColor="@color/Green"
+            app:strokeWidth="2dp"
+            app:cardElevation="5dp"
+            android:id="@+id/batting_Card_TossActivity"
+            >
+
+        <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:backgroundTint="@color/GhostWhite"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:text="Batting"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                />
+    </com.google.android.material.card.MaterialCardView>
 
 
-
-
-
+</LinearLayout>
+    </RelativeLayout>
 
 
 
