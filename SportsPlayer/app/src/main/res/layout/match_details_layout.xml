@@ -8,111 +8,60 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="view.match.StartMatchActivity">
-<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@color/colorAccent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:id="@+id/constraint_layout_match_detail"
+        tools:context="view.match.MatchDetails">
 
-</LinearLayout>
-
-    <RelativeLayout
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:id="@+id/relativeLayout_StartMatch"
-            app:layout_constraintTop_toTopOf="parent">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="10dp"
-                android:src="@mipmap/ic_launcher_round"
-                android:id="@+id/team_A_StartMatchActivity"
-                android:layout_marginStart="10dp" />
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:layout_marginLeft="10dp"
-                android:layout_below="@id/team_A_StartMatchActivity"
-                android:textAlignment="center"
-                android:text="@string/select_team_a"
-                style="@style/teamNameTextStyle"
-                android:id="@+id/selected_Team_A_Name_StartMatchActivity"
-                android:layout_marginStart="10dp" />
-
-        <com.github.florent37.shapeofview.shapes.StarView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:outlineAmbientShadowColor="@color/colorAccent"
-                android:outlineSpotShadowColor="@color/colorPrimaryDark"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true">
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:background="@color/colorPrimaryDark"
-                    android:layout_height="match_parent">
-
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:textColor="@color/cardView"
-                        android:textStyle="italic"
-                        android:text="VS"
-                        android:textSize="20sp"/>
-
-
-            </LinearLayout>
-
-
-        </com.github.florent37.shapeofview.shapes.StarView>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/opponent_team_layout"
+            app:layout_constraintTop_toTopOf="parent"
+            >
 
 
         <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:id="@+id/team_B_StartMatchActivity"
+                android:layout_marginTop="10dp"
                 android:src="@mipmap/ic_launcher_round"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="15dp"
-                android:layout_marginEnd="15dp"/>
+                android:id="@+id/team_B_Match_Details"
+                android:layout_gravity="top|center_horizontal" />
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/select_team_b"
-                android:id="@+id/selected_Team_B_Name_StartMatchActivity"
-                android:layout_below="@id/team_B_StartMatchActivity"
-                android:layout_marginRight="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_alignParentEnd="true"
+                android:textStyle="bold|italic"
+                android:textColor="@color/cardview_dark_background"
                 style="@style/teamNameTextStyle"
-                android:layout_alignParentRight="true"
-                 />
-    </RelativeLayout>
+                android:id="@+id/selected_Team_B_Name_Match_Details"
+                />
+
+
+    </LinearLayout>
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:id="@+id/inputEditText_linearLayout_StartMatch"
-            app:layout_constraintTop_toBottomOf="@id/relativeLayout_StartMatch">
+            android:id="@+id/inputEditText_linearLayout_Match_Details"
+            app:layout_constraintTop_toBottomOf="@+id/opponent_team_layout"
+            >
 
         <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingStart="10dp"
                 android:id="@+id/matchType_radio_group"
                 >
 
 
             <RadioButton
-                    android:id="@+id/testMatch_StartMatch"
+                    android:id="@+id/testMatch_Match_Details"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Test"
@@ -121,11 +70,11 @@
 
             <RadioButton android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Limited Over"
+                    android:text="Limited Overs"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:textSize="18sp"
-                    android:id="@+id/ondayMatch_StartMatch" />
+                    android:id="@+id/oneDayMatch_Match_Details" />
         </RadioGroup>
 
 
@@ -138,10 +87,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:paddingHorizontal="5dp"
                 app:hintAnimationEnabled="true"
                 app:counterMaxLength="3"
                 app:hintEnabled="true"
-                android:hint="Match Over"
+                android:hint="Match Overs"
                 app:boxStrokeColor="@android:color/holo_green_dark"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:textSize="18dp"
@@ -150,9 +100,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:maxLength="3"
+                    android:maxLength="2"
                     android:ems="10"
-                    android:id="@+id/matchOver_StartMatch"
+                    android:id="@+id/matchOvers_Match_Details"
                     />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -162,9 +112,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:paddingHorizontal="5dp"
                 app:hintAnimationEnabled="true"
                 app:hintEnabled="true"
-                android:hint="Ground"
+                android:hint="City/Town"
                 app:boxStrokeColor="@android:color/holo_green_dark"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:textSize="18dp"
@@ -174,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/matchGround_StartMatch"
+                    android:id="@+id/matchCity_Match_Details"
                     />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -184,6 +135,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:paddingHorizontal="5dp"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                android:hint="Venue(Ground)"
+                app:boxStrokeColor="@android:color/holo_green_dark"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:textSize="18dp"
+                >
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/matchVenue_Match_Details"
+                    />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingHorizontal="5dp"
                 app:hintAnimationEnabled="true"
                 app:hintEnabled="true"
                 android:hint="Date"
@@ -196,7 +171,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="date"
                     android:ems="10"
-                    android:id="@+id/matchDate_StartMatch"
+                    android:id="@+id/matchDate_Match_Details"
                     />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -207,6 +182,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:paddingHorizontal="5dp"
                 app:hintAnimationEnabled="true"
                 app:hintEnabled="true"
                 android:hint="Time"
@@ -219,7 +195,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="time"
                     android:ems="10"
-                    android:id="@+id/matchTime_StartMatch"
+                    android:id="@+id/matchTime_Match_Details"
                     />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -231,9 +207,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:paddingHorizontal="5dp"
                 app:hintAnimationEnabled="true"
                 app:hintEnabled="true"
-                android:hint="Umpire"
+                android:hint="Squad Count"
                 app:boxStrokeColor="@android:color/holo_green_dark"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:textSize="18dp"
@@ -241,11 +218,13 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="number"
+                android:maxLength="2"
                 android:ems="10"
-                android:id="@+id/matchUmpire_StartMatch"
+                android:id="@+id/squad_count_Match_Details"
                 />
         </com.google.android.material.textfield.TextInputLayout>
+
 
     </LinearLayout>
 
@@ -253,19 +232,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:paddingHorizontal="5dp"
             android:layout_marginTop="10dp"
-           app:layout_constraintTop_toBottomOf="@id/inputEditText_linearLayout_StartMatch"
+           app:layout_constraintTop_toBottomOf="@id/inputEditText_linearLayout_Match_Details"
 
             >
-
-
-
-
-
-
-
-
-
 
         <TextView
                 android:layout_width="wrap_content"
@@ -289,7 +260,7 @@
                     android:text="TENNIS"
                     android:textSize="18sp"
                     android:layout_weight="1"
-                    android:id="@+id/tapBall_StartMatch"
+                    android:id="@+id/tennisBall_Match_Details"
                      />
 
             <RadioButton android:layout_width="wrap_content"
@@ -297,12 +268,20 @@
                     android:text="LEATHER"
                     android:layout_weight="1"
                     android:textSize="18sp"
-                    android:id="@+id/leatherBall_StartMatch" />
+                    android:id="@+id/leatherBall_Match_Details" />
+
+            <RadioButton
+                    android:id="@+id/tapeBall_Match_Details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TAPE BALL"
+                    android:textSize="18sp" />
         </RadioGroup>
 
 
         <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -314,8 +293,9 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 app:strokeWidth="1dp"
-                android:text="Save"
-                android:id="@+id/saveMatch_StartMatchActivity"
+                android:text="Send Challenge Request"
+                android:textSize="25sp"
+                android:id="@+id/send_challenge_request_button_match_details"
                 >
 
         </com.google.android.material.button.MaterialButton>

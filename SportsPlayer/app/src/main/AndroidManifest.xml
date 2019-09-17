@@ -22,13 +22,14 @@
         <activity android:name="view.team.TeamsPlayerReadyToPlayMatch"></activity>
         <activity android:name="view.match.StartInning" />
         <activity android:name="view.match.TossActivity" />
-        <activity
-                android:name="com.yalantis.ucrop.UCropActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name="view.team.TeamDetailActivity" />
         <activity android:name="view.match.SelectTeamActivity" />
-        <activity android:name="view.match.StartMatchActivity" />
+        <activity android:name="view.match.MatchDetails" />
+
+        <activity
+        android:name="com.yalantis.ucrop.UCropActivity"
+        android:screenOrientation="portrait"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name="view.team.TeamDetailActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,7 +50,6 @@
         <activity android:name="view.CurrentLocationDetector" />
         <activity android:name="view.fragment.SearchPlayerToAddInTeam" />
         <activity android:name="view.EditProfile"/>
-        <activity android:name="view.match.ui.MatchScoring"/>
     </application>
 
 </manifest>

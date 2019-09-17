@@ -11,11 +11,12 @@
     <string name="age_info">you must be 7 years old</string>
     <string name="action_search">Search Here</string>
     <string name="start_match">Start Match</string>
+    <string name="notifications">Notifications</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="select_team_a">Select Team A</string>
-    <string name="select_team_b">Select Team B</string>
+    <string name="select_team_b">Select Opponent Team</string>
     <string name="section_1">Member</string>
     <string name="section_2">Match</string>
     <string name="team_detail">Team Detail</string>

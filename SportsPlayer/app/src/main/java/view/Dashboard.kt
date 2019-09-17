@@ -30,10 +30,8 @@ import kotlinx.android.synthetic.main.match_card_on_dashboard.view.*
 import kotlinx.android.synthetic.main.my_team_list_ondashboard.view.*
 import org.jetbrains.anko.startActivity
 import view.ProfilePackage.Profile
-import view.fragment.SearchPlayerToAddInTeam
 import view.fragment.SearchTeamFragment
-import view.match.StartMatchActivity
-import view.matchscoring.MatchScoringActivity
+import view.match.MatchDetails
 import view.team.TeamDetailActivity
 
 @Suppress("DEPRECATION")
@@ -255,7 +253,7 @@ class Dashboard:AppCompatActivity(), SearchTeamFragment.OnFragmentInteractionLis
                 startActivity<EditProfile>()
             }//Upcoming Matches Activity
             R.id.startMatch->{
-               startActivity<StartMatchActivity>()
+               startActivity<MatchDetails>()
             }
             R.id.signOut->signOutUser()
             R.id.createTeam->startActivity<TeamRegistration>()
