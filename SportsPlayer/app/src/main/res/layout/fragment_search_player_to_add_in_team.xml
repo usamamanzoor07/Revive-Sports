@@ -20,11 +20,16 @@
                       android:layout_height="match_parent"
         android:orientation="vertical">
 
+
             <androidx.appcompat.widget.SearchView
                         android:layout_width="match_parent"
                         android:id="@+id/searchView_Player"
-                        app:defaultQueryHint="Enter Phone Number"
-
+                        app:defaultQueryHint="Enter Phone Number (03---------)"
+                    android:inputType="phone"
+                    app:iconifiedByDefault="false"
+                    android:focusableInTouchMode="true"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:focusable="true"
                         android:layout_height="?attr/actionBarSize">
             </androidx.appcompat.widget.SearchView>
             <androidx.recyclerview.widget.RecyclerView

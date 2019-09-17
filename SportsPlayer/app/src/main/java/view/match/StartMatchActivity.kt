@@ -204,30 +204,30 @@ private fun saveMatch() {
 
     }
 
-    private fun checkTeamReselection(name:String, rc:Int)
-    {
-        if(team_A_id==team_B_id)
-        {
-            alert{
-                title="Reselection"
-                message="$name already selected"
-                okButton { dialog ->
-                    when (rc) {
-                        team_A-> {team_A_Card_StartMatchActivity.isChecked=false
-                            selectTeamA() }
-                        team_B->{team_B__Card_StartMatchActivity.isChecked=false
-                            selectTeamB() }
-                    }
-                    dialog.dismiss()
-                }
-            }.show()
-        }else{
-            when(rc){
-                team_A->{team_A_Card_StartMatchActivity.isChecked=true}
-                team_B->{team_B__Card_StartMatchActivity.isChecked=true}
-            }
-        }
-    }
+    /*   private fun checkTeamReselection(name:String, rc:Int)
+       {
+           if(team_A_id==team_B_id)
+           {
+               alert{
+                   title="Reselection"
+                   message="$name already selected"
+                   okButton { dialog ->
+                       when (rc) {
+                           team_A-> {team_A_Card_StartMatchActivity.isChecked=false
+                               selectTeamA() }
+                           team_B->{team_B__Card_StartMatchActivity.isChecked=false
+                               selectTeamB() }
+                       }
+                       dialog.dismiss()
+                   }
+               }.show()
+           }else{
+               when(rc){
+                   team_A->{team_A_Card_StartMatchActivity.isChecked=true}
+                   team_B->{team_B__Card_StartMatchActivity.isChecked=true}
+               }
+           }
+       }*/
 
     private fun selectTeamB() { startActivityForResult<SelectTeamActivity>(team_B) }
     private fun selectTeamA() { startActivityForResult<SelectTeamActivity>(team_A) }
@@ -257,10 +257,9 @@ private fun saveMatch() {
                         team_A_id=team1_id
                         team_A_Logo=team1_logo
                         team_A_Squad=squad
-                        checkTeamReselection(team_A_Name, team_A)
                         Picasso.get().load(team1_logo).into(team_A_StartMatchActivity)
                         selected_Team_A_Name_StartMatchActivity.text=team1_Name
-                        team_A_Squad_StartMatchAcitivity.text="Squad (${team_A_Squad.size})"
+
 
                     }
                 }
@@ -276,10 +275,9 @@ private fun saveMatch() {
                         team_B_Logo=team2_logo
                         team_B_Name=team2_Name
                         team_B_Squad=squad_B
-                        checkTeamReselection(team_B_Name,team_B)
                         Picasso.get().load(team2_logo).into(team_B_StartMatchActivity)
                         selected_Team_B_Name_StartMatchActivity.text=team2_Name
-                        team_B_Squad_StartMatchAcitivity.text="SQUAD (${team_B_Squad.size})"
+
                     }
                 }
             }

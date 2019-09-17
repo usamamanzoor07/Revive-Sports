@@ -238,30 +238,4 @@ class TeamRegistration:AppCompatActivity(),View.OnClickListener
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

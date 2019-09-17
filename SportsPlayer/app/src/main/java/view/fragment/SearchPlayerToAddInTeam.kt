@@ -35,6 +35,9 @@ class SearchPlayerToAddInTeam : AppCompatActivity() {
         firebaseDatabase = FirebaseDatabase.getInstance()
         ref = FirebaseDatabase.getInstance().reference.child("PlayerBasicProfile")
 
+        val text ="Search Player By Phone Number"
+        supportActionBar?.title=text
+
     }
 
 
@@ -109,7 +112,7 @@ class SearchPlayerToAddInTeam : AppCompatActivity() {
 
                                                 override fun onDataChange(p0: DataSnapshot) {
 
-                                                    val team_Id=p0.child("teamId").value.toString()
+                                                    val captainId=p0.child("captainId").value.toString()
                                                     val teamLogo=p0.child("teamLogo").value.toString()
                                                     val teamName=p0.child("teamName").value.toString()
                                                     val teamCaptain=p0.child("captainName").value.toString()
@@ -121,6 +124,7 @@ class SearchPlayerToAddInTeam : AppCompatActivity() {
                                                         "teamName" to teamName,
                                                         "teamCaptain" to teamCaptain,
                                                         "teamCity" to teamCity ,
+                                                        "captainId" to captainId,
                                                         "Dashboard" to "dashboard")
 
                                                 }

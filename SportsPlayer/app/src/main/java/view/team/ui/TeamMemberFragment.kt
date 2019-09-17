@@ -1,13 +1,16 @@
 package view.team.ui
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,33 +21,41 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.example.sportsplayer.R
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.pawegio.kandroid.toast
+import com.pawegio.kandroid.visible
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.fragment_team_member.*
+import kotlinx.android.synthetic.main.fragment_team_member.recyclerView_TeamMemberFragment
 import kotlinx.android.synthetic.main.team_member_list.view.*
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivityForResult
+import view.fragment.SearchPlayerToAddInTeam
 
 
-class TeamMemberFragment(val teamId: String) : Fragment() {
+class TeamMemberFragment(val teamId: String,val captainId:String) : Fragment(),View.OnClickListener {
     private var listener: OnFragmentInteractionListener? = null
     val groupAdapter= GroupAdapter<ViewHolder>() //groupi Adapter
 
     lateinit var removePopUpDialog: Dialog
+    private val currentPlayer = FirebaseAuth.getInstance().uid.toString()
+    private val requestCode = 1
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.fragment_team_member, container, false)
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_team_member, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -125,16 +136,43 @@ class TeamMemberFragment(val teamId: String) : Fragment() {
         removePopUpDialog.show()
     }
 
+    private fun removeMe(currentPlayer:String){
+
+            AlertDialog.Builder(activity)
+                .setCancelable(true)
+                .setTitle("Conformation")
+                .setMessage("Do you really want to Leave this Team")
+                .setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
+                .setPositiveButton("Yes"){ dialog, _ -> removeSelectedPlayer(currentPlayer)
+                    dialog.dismiss()
+                }
+                .create().show()
+
+    }
+
 
     override fun onResume() {
         super.onResume()
         groupAdapter.clear()
         fetchTeamMember(teamId)
+        //assign Click Listener to Button
+        removeMe_Button_team_member.setOnClickListener(this)
+        addPlayer_Button_team_member.setOnClickListener(this)
+
+        if (currentPlayer!=captainId) {
+            makeViewsInvisible(addPlayer_Button_team_member)
+        }
     }
 
 
     private fun removeSelectedPlayer(p_Id: String)
     {
+
+        toast(currentPlayer)
+        if (currentPlayer==captainId){
+            toast("You can't be removed while captain")
+        }
+        else{
         val newDatabaseReference=FirebaseDatabase.getInstance().reference
         val removePlayer=HashMap<String,String?>()
         removePlayer["/TeamsPlayer/$teamId/$p_Id"]=null
@@ -143,11 +181,37 @@ class TeamMemberFragment(val teamId: String) : Fragment() {
 
                 task ->
             if(task.isSuccessful)
-            {toast("player is removed")
+            {toast("Player is Removed")
                 removePopUpDialog.dismiss()
             }
         }
+        }
     }
+
+    override fun onClick(view: View?) {
+        when(view?.id)
+        {
+            R.id.addPlayer_Button_team_member->{
+                val intent = Intent(activity, SearchPlayerToAddInTeam::class.java)
+                intent.putExtra("teamId", teamId)
+                this.startActivityForResult(intent, requestCode)
+            }
+            R.id.removeMe_Button_team_member->{
+                removeMe(currentPlayer)
+            }
+
+        }
+    }
+
+    private fun makeViewsInvisible(vararg view:View)
+    {
+        for(v in view)
+        {
+            v.visible=false
+        }
+    }
+
+
 
 
     private fun fetchTeamMember(teamId:String)

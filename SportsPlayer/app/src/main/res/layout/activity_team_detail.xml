@@ -113,26 +113,17 @@
 
                 </LinearLayout>
 
+                <com.google.android.material.button.MaterialButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:text="Challenge Opponent"
+                        android:textSize="20sp"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:id="@+id/challenge_for_match"
+                        >
 
-            <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:background="@android:color/transparent"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textAllCaps="false"
-                    app:strokeColor="@color/colorPrimary"
-                    android:layout_alignParentStart="true"
-                    android:layout_margin="2dp"
-                    android:gravity="center"
-                    app:strokeWidth="1dp"
-                    android:text="add player"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:id="@+id/addNewPlayer_TeamDetailActivity"
-                    >
-
-            </com.google.android.material.button.MaterialButton>
+                </com.google.android.material.button.MaterialButton>
 
 
             </RelativeLayout>

@@ -30,6 +30,7 @@ import kotlinx.android.synthetic.main.match_card_on_dashboard.view.*
 import kotlinx.android.synthetic.main.my_team_list_ondashboard.view.*
 import org.jetbrains.anko.startActivity
 import view.ProfilePackage.Profile
+import view.fragment.SearchPlayerToAddInTeam
 import view.fragment.SearchTeamFragment
 import view.match.StartMatchActivity
 import view.matchscoring.MatchScoringActivity
@@ -66,7 +67,7 @@ class Dashboard:AppCompatActivity(), SearchTeamFragment.OnFragmentInteractionLis
 
             val team=item as MyTeamOnDashboard
             Log.d("Dashboard_TeamName",team.teamName)
-            Log.d("Dashboard_TeamCaptain",team.teamCaptain)
+            Log.d("Dashboard_TeamCaptain",team.captainId)
             Log.d("Dashboard_TeamCity",team.teamCity)
 
 
@@ -74,7 +75,8 @@ class Dashboard:AppCompatActivity(), SearchTeamFragment.OnFragmentInteractionLis
                 "teamId" to team.teamId,
                 "teamLogo" to team.teamLogo,
                 "teamName" to team.teamName,
-                "teamCity" to team.teamCity
+                "teamCity" to team.teamCity,
+                "captainId" to team.captainId
                 )
 
         }
@@ -336,7 +338,7 @@ val playersTeamReference=FirebaseDatabase.getInstance().getReference("/PlayersTe
                                val team_Id=p0.child("teamId").value.toString()
                                val teamLogo=p0.child("teamLogo").value.toString()
                                val teamName=p0.child("teamName").value.toString()
-                               val teamCaptain=p0.child("captainName").value.toString()
+                               val captainId=p0.child("captainId").value.toString()
                                val teamCity=p0.child("city").value.toString()
 
                                //cardView color
@@ -344,7 +346,7 @@ val playersTeamReference=FirebaseDatabase.getInstance().getReference("/PlayersTe
                                val green=(10..230).random()
                                val blue=(10..230).random()
                                val color= Color.argb(255,red,green,blue)
-                               teamAdapter.add(MyTeamOnDashboard(teamLogo,teamName,teamCaptain,teamCity,team_Id))
+                               teamAdapter.add(MyTeamOnDashboard(teamLogo,teamName,captainId,teamCity,team_Id))
                            }
 
                        })
@@ -360,7 +362,7 @@ val playersTeamReference=FirebaseDatabase.getInstance().getReference("/PlayersTe
 
     class MyTeamOnDashboard(var teamLogo:String,
                             var teamName:String,
-                            var teamCaptain:String,
+                            var captainId:String,
                             var teamCity:String,
                             var teamId:String):Item<ViewHolder>(){
         override fun getLayout(): Int {
