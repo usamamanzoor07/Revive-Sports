@@ -22,9 +22,6 @@ class MatchDetails : AppCompatActivity(){
 
     lateinit var matchType:String
     lateinit var ballType:String
-    val team_A_id = intent.getStringExtra("teamId")
-    val team_A_Logo=intent.getStringExtra("teamLogo")
-    val team_A_Name=intent.getStringExtra("teamName")
     lateinit var team_B_id:String
     lateinit var team_B_Logo:String
     lateinit var team_B_Name:String
@@ -126,6 +123,11 @@ class MatchDetails : AppCompatActivity(){
     }
 
 private fun sendRequestForMatch() {
+
+    val team_A_id = intent.getStringExtra("teamId")
+    val team_A_Logo=intent.getStringExtra("teamLogo")
+    val team_A_Name=intent.getStringExtra("teamName")
+    Log.d("team",team_A_id)
     val overs = matchOvers_Match_Details.text.toString().trim()
     val city = matchCity_Match_Details.text.toString().trim()
     val venue = matchVenue_Match_Details.text.toString().trim()
@@ -150,14 +152,14 @@ private fun sendRequestForMatch() {
         Log.d("requestId ",requestId)
         newRequestId=requestId
 
-        val newMatch=MatchInvite(matchType,overs,city,venue,date,time,ballType,team_A_id,team_B_id,squad,requestId)
+        val newMatchInvite=MatchInvite(matchType,overs,city,venue,date,time,ballType,team_A_id,team_B_id,squad,requestId)
 
         Log.d("Team_A_Id ",team_A_id)
         Log.d("team_B_Id ",team_B_id)
         val addRequest=HashMap<String,Any>()
-        addRequest["/MatchInvite/$requestId"]=newMatch
-        addRequest["/TeamsMatch/$team_A_id/$requestId"]=true
-        addRequest["/TeamsMatch/$team_B_id/$requestId"]=true
+        addRequest["/MatchInvite/$requestId"]=newMatchInvite
+        addRequest["/TeamsMatchInvite/$team_A_id/$requestId"]=true
+        addRequest["/TeamsMatchInvite/$team_B_id/$requestId"]=true
 
 
 

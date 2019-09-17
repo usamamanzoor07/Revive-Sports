@@ -126,7 +126,7 @@ TeamStatsFragment.OnFragmentInteractionListener,
                      val teamName=intent.getStringExtra("teamName")
                      val captainId =intent.getStringExtra("captainId")
 
-                     startActivity<TeamDetailActivity>(
+                     startActivity<MatchDetails>(
                          "teamId" to teamId,
                          "teamLogo" to teamLogo,
                          "teamName" to teamName,
