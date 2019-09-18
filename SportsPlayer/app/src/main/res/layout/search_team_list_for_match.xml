@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:elevation="5dp"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/cardView_SearchTeamListForMatch"
+            app:strokeColor="@color/DarkOrange"
+            app:strokeWidth="2dp"
+            >
+
+        <RelativeLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/teamLogo__SearchTeamListForMatch"
+                    android:layout_alignParentStart="true"
+                    android:src="@android:drawable/sym_def_app_icon"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp" android:layout_alignParentTop="true"/>
+            <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_toRightOf="@+id/teamLogo__SearchTeamListForMatch"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical"
+                    android:layout_alignParentTop="true">
+                <TextView android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/teamName_SearchTeamListForMatch"
+                        android:hint="Team Name"
+                        style="@style/teamNameTextStyle"/>
+
+                <TextView android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Team City"
+                        android:id="@+id/teamCity_SearchTeamListForMatch"
+                        style="@style/teamNameTextStyle"/>
+                <TextView android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Team Admin"
+                        android:id="@+id/teamAdmin_SearchTeamListForMatch"
+                        style="@style/teamNameTextStyle"/>
+
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

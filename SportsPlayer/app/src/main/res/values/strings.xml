@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">SportsPlayer</string>
+    <string name="status_verification_failed">something went wrong verification failed</string>
+    <string name="status_verification_succeeded">Verification Succeeded</string>
+    <string name="instant_validation">instant validation</string>
+    <string name="status_sign_in_failed">User SignIn Failed</string>
+    <string name="firebase_status_fmt">firebase status</string>
+    <string name="status_code_sent">verification code is sent</string>
+    <string name="signed_in">user signed In</string>
+    <string name="signed_out">user signed out</string>
+    <string name="age_info">you must be 7 years old</string>
+    <string name="action_search">Search Here</string>
+    <string name="start_match">Start Match</string>
+    <string name="notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_team_a">Select Team A</string>
+    <string name="select_team_b">Select Opponent Team</string>
+    <string name="section_1">Member</string>
+    <string name="section_2">Match</string>
+    <string name="team_detail">Team Detail</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+
+    //Playing Role Spinner Items
+    <string-array name="Playing_Role">
+        <item>Top-Order Batsman</item>
+        <item>Middle-Order Batsman</item>
+        <item>Lower-Order Batsman</item>
+        <item>Batting All-Rounder</item>
+        <item>Bowling All-Rounder</item>
+        <item>Wicket-Keeper Batsman</item>
+        <item>Spin Bowler</item>
+        <item>Fast Bowler</item>
+        <item>None</item>
+    </string-array>
+
+    //Batting Style Spinner Items
+    <string-array name="Batting_Style">
+        <item>Right Hand Batsman</item>
+        <item>Left Hand Batsman</item>
+        <item>None</item>
+    </string-array>
+
+    //Bowling Style Spinner Items
+    <string-array name="Bowling_Style">
+        <item>Right Arm Fast</item>
+        <item>Left Arm Fast</item>
+        <item>Right Arm Medium</item>
+        <item>Left Arm Medium</item>
+        <item>Right Arm Off-Break</item>
+        <item>Left Arm Off-Break</item>
+        <item>Right Arm Leg-Break</item>
+        <item>Left Arm Leg-Break</item>
+        <item>None</item>
+    </string-array>
+
+</resources>

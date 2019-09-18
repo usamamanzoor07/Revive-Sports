@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+        <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:id="@+id/gender_text_profile"
+                android:text="Gender"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                />
+        <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gender_general_fragment"
+                android:layout_below="@+id/gender_text_profile"
+                android:layout_marginStart="20dp"
+                android:text="Larka"
+                android:textColor="@color/DimGray"
+                android:textSize="18sp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+        <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="165dp"
+                android:id="@+id/date_of_birth_text_profile"
+                android:text="Date Of Birth: "
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                />
+        <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dob_general_fragment"
+                android:layout_below="@+id/date_of_birth_text_profile"
+                android:layout_marginStart="165dp"
+                android:text="7-10-96"
+                android:textColor="@color/DimGray"
+                android:textSize="18sp"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/mobile_text_profile"
+                    android:text="Mobile Number"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    />
+            <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mobile_no_general_fragment"
+                    android:layout_below="@+id/mobile_text_profile"
+                    android:layout_marginStart="20dp"
+                    android:text="03XXXXXXXXX"
+                    android:textColor="@color/DimGray"
+                    android:textSize="18sp"
+                    />
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="95dp"
+                    android:id="@+id/playing_role_text_profile"
+                    android:text="Playing Role"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    />
+            <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/playing_role_general_fragment"
+                    android:layout_below="@+id/playing_role_text_profile"
+                    android:layout_marginStart="95dp"
+                    android:text="Batsman"
+                    android:textColor="@color/DimGray"
+                    android:textSize="18sp"
+                    />
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/batting_style_text_profile"
+                    android:text="Batting Style"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    />
+            <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/batting_style_general_fragment"
+                    android:layout_below="@+id/batting_style_text_profile"
+                    android:layout_marginStart="20dp"
+                    android:text="Right Hand Batsman"
+                    android:textColor="@color/DimGray"
+                    android:textSize="18sp"
+                    />
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/bowling_style_text_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:text="Bowling Style"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp" />
+            <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bowling_style_general_fragment"
+                    android:layout_below="@+id/bowling_style_text_profile"
+                    android:layout_marginStart="60dp"
+                    android:text="Right Arm Fast"
+                    android:textColor="@color/DimGray"
+                    android:textSize="18sp"
+                    />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

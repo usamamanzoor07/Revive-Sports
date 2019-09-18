@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout_profile_activity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/AntiqueWhite">
+
+
+    <com.github.florent37.shapeofview.shapes.ArcView
+            android:id="@+id/arcLayout"
+            app:shape_arc_cropDirection="outside"
+            app:shape_arc_height="30dp"
+            app:shape_arc_position="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            >
+
+        <com.flaviofaria.kenburnsview.KenBurnsView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/stadium" />
+
+
+
+    </com.github.florent37.shapeofview.shapes.ArcView>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/arcLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:id="@+id/playerImage_ProfileActivity"
+            style="@style/playerImage_ProfileActivity"
+            app:civ_border_width="5dp"
+            app:civ_border_color="@color/lightGray"
+            />
+
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_below="@+id/playerImage_ProfileActivity"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-light"
+            android:id="@+id/playerName_ProfileActivity"
+            android:text="Usama"
+            android:textColor="@color/Black"
+            android:textSize="25sp" />
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+
+   <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/playerName_ProfileActivity"
+            android:orientation="vertical"
+            >
+
+
+    <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabMode="scrollable"
+            android:id="@+id/tabLayout_profile"
+            style="@style/Widget.MaterialComponents.TabLayout.PrimarySurface"
+            app:tabIndicator="@color/colorAccent"
+            android:background="@color/teamCardView"
+
+            />
+
+
+    <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/viewPager"
+            >
+    </androidx.viewpager.widget.ViewPager>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context="view.team.ui.TeamMemberFragment">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    android:id="@+id/recyclerView_TeamMemberFragment">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            >
+
+        <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/removeMe_Button_team_member"
+                android:padding="10dp"
+                android:text="Remove Me"
+                android:textColor="@color/DimGray"
+                android:textSize="20sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                />
+
+        <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/addPlayer_Button_team_member"
+                android:text="Add Player"
+                android:textSize="20sp"
+                android:padding="10dp"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+
+                />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

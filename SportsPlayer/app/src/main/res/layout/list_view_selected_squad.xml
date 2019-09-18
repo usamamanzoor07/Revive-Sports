@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/teamCardView"
+            android:id="@+id/mCardView_ListViewSelectedSquad"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:checkable="true"
+            android:focusable="true"
+            app:checkedIcon="@drawable/ic_check_black_24dp"
+            >
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:id="@+id/player_ImageView_ListViewSelectedSquad"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_marginTop="2dp"
+                    android:layout_gravity="center|top"
+                    />
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Player Name"
+                    android:id="@+id/playerName_ListViewSelectedSquad"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    style="@style/teamNameTextOndashboardStyle"
+
+                    />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

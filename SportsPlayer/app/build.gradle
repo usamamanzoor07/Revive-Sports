@@ -1,0 +1,137 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.sportsplayer"
+        minSdkVersion 17
+        targetSdkVersion 28
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            multiDexEnabled = true
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    
+    // Import the platform
+    implementation platform('com.google.firebase:firebase-bom:22.2.0')
+
+    // When using a BoM, dependencies don't require a specified version
+    // If you do specify a version, it overrides the library version specified in the BoM
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-storage'
+    implementation 'com.google.firebase:firebase-core'
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+
+
+    //CircleImageView
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
+    //Material Design Library
+    implementation "com.google.android.material:material:1.1.0-alpha10"
+
+    // Anko Commons
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+
+    //Groupi library
+    implementation 'com.xwray:groupie:2.3.0'
+    implementation 'com.xwray:groupie-kotlin-android-extensions:2.3.0'
+
+    //Picasso library
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'jp.wasabeef:picasso-transformations:2.2.1'
+
+//CardView and RecyclerView
+    implementation "androidx.cardview:cardview:1.0.0"
+
+    // https://mvnrepository.com/artifact/androidx.recyclerview/recyclerview
+    implementation group: 'androidx.recyclerview', name: 'recyclerview', version: '1.1.0-beta04'
+
+
+    // https://mvnrepository.com/artifact/androidx.fragment/fragment
+    implementation group: 'androidx.fragment', name: 'fragment', version: '1.2.0-alpha03'
+
+
+    //Moshi library Json Parser
+    implementation 'com.squareup.moshi:moshi:1.8.0'
+    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0'
+
+    // https://mvnrepository.com/artifact/com.google.android.gms/play-services-basement
+    implementation group: 'com.google.android.gms', name: 'play-services-basement', version: '17.1.0'
+// https://mvnrepository.com/artifact/com.google.android.gms/play-services-auth-api-phone
+    implementation group: 'com.google.android.gms', name: 'play-services-auth-api-phone', version: '17.1.0'
+// https://mvnrepository.com/artifact/com.google.android.gms/play-services-base
+    implementation group: 'com.google.android.gms', name: 'play-services-base', version: '17.1.0'
+
+// https://mvnrepository.com/artifact/com.google.android.gms/play-services-auth
+    implementation group: 'com.google.android.gms', name: 'play-services-auth', version: '17.0.0'
+
+
+
+
+
+    //google Play Services for Location Detection
+    implementation "com.google.android.gms:play-services-location:17.0.0"
+    //google play services for phone Authentication
+    //implementation 'com.google.android.gms:play-services-base:17.1.0'
+    implementation 'com.google.android.gms:play-services-identity:17.0.0'
+    //implementation 'com.google.android.gms:play-services-auth:17.0.0'
+//    implementation 'com.google.android.gms:play-services-auth-api-phone:17.1.0'
+
+
+    //Button Animation
+    implementation 'com.github.StevenDXC:DxLoadingButton:2.2'
+
+    //kandroid core library
+    implementation 'com.pawegio.kandroid:kandroid:0.8.7@aar'
+
+    //kotlinx coroutine
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0-M2'
+
+    //FirebaseRecyclerAdapter
+    implementation 'com.firebaseui:firebase-ui-database:3.3.1'
+    //Multidex support
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //Material Shape Of Views
+    implementation 'com.github.florent37:shapeofview:1.3.2'
+    //ImageCrop
+    implementation 'com.github.yalantis:ucrop:2.2.2'
+
+    //Moving View
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+
+}
+
+apply plugin: 'com.google.gms.google-services'
+

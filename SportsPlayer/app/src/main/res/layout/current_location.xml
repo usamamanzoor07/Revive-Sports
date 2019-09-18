@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+android:orientation="vertical">
+
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/txtContinueLocation_label"
+              android:layout_marginTop="20dp"
+              android:hint="Continuous location"
+              android:textSize="20sp"
+    />
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/txtContinueLocation_textview"
+              android:layout_marginTop="10dp"
+              android:textSize="18sp"
+
+    />
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/conts_location_btn"
+            android:text="continuous location"
+            android:textAllCaps="false"
+            android:layout_marginTop="30dp"/>
+
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/txtLocation_label"
+              android:layout_marginTop="20dp"
+              android:hint="location"
+              android:textSize="20sp"
+    />
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/txtLocation_textview"
+              android:layout_marginTop="10dp"
+              android:textSize="18sp"
+    />
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="location"
+            android:id="@+id/location_btn"
+            android:textAllCaps="false"
+            android:layout_marginTop="30dp"/>
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.example.sportsplayer">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+            android:allowBackup="true"
+            android:hardwareAccelerated="false"
+            android:icon="@drawable/ic_toys_black"
+            android:label="@string/app_name"
+            android:largeHeap="true"
+            android:roundIcon="@drawable/ic_toys_black"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name="view.team.TeamsPlayerReadyToPlayMatch"></activity>
+        <activity android:name="view.match.StartInning" />
+        <activity android:name="view.match.TossActivity" />
+        <activity android:name="view.match.SelectTeamActivity" />
+        <activity android:name="view.match.MatchDetails" />
+
+        <activity
+        android:name="com.yalantis.ucrop.UCropActivity"
+        android:screenOrientation="portrait"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name="view.team.TeamDetailActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="view.PhoneHintActivity" />
+        <activity android:name="view.PlayerSignUp" />
+        <activity android:name="view.Dashboard">
+            <meta-data
+                    android:name="android.app.searchable"
+                    android:resource="@xml/searchable" />
+        </activity>
+        <activity android:name="view.PhoneAuthActivity" />
+        <activity android:name="view.ProfilePackage.Profile" />
+        <activity android:name="view.TeamRegistration" />
+        <activity android:name="view.CurrentLocationDetector" />
+        <activity android:name="view.fragment.SearchPlayerToAddInTeam" />
+        <activity android:name="view.EditProfile"/>
+    </application>
+
+</manifest>

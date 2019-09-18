@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:background="@android:color/white">
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textInput_layout"
+            android:layout_marginTop="10dp">
+
+
+
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="3dp"
+                      android:orientation="vertical"
+                      android:id="@+id/linear_layout">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    app:boxStrokeColor="@android:color/holo_green_dark"
+                    android:textSize="20sp"
+                    android:textColorHint="@color/colorAccent"
+                    android:hint="Phone Number (+923XXXXXXXXX)"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/phoneNumber_textView_PhoneAuthActivity"
+                        android:inputType="phone"
+                />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.dx.dxloadingbutton.lib.LoadingButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sendCode_Button_PhoneAuthActivity"
+                    app:lb_btnText="Send Code"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginTop="10dp"
+                    app:lb_resetAfterFailed="true"
+                    app:lb_btnRippleColor="@android:color/holo_purple"
+                    app:lb_btnDisabledColor="@android:color/white"
+                    app:lb_cornerRadius="32"
+                    app:lb_rippleEnable="true"
+                    />
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColorHint="@color/colorAccent"
+                    android:hint="Verification Code"
+                    app:boxStrokeColor="@android:color/holo_green_dark"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:id="@+id/code_textView_PhoneAuthActivity"
+
+                />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
+            <com.dx.dxloadingbutton.lib.LoadingButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/verifyPhone_Button_PhoneAuthActivity"
+                    app:lb_btnText="verify"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginTop="10dp"
+                    app:lb_resetAfterFailed="true"
+                    app:lb_btnRippleColor="@android:color/holo_purple"
+                    app:lb_btnDisabledColor="@android:color/white"
+                    app:lb_cornerRadius="32"
+                    app:lb_rippleEnable="true"
+                    />
+
+
+
+
+
+        </LinearLayout>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</RelativeLayout>
+
