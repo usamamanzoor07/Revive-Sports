@@ -17,12 +17,26 @@ import kotlinx.android.synthetic.main.match_details_layout.*
 import model.Match
 import model.MatchInvite
 import org.jetbrains.anko.*
+import view.match.ui.SearchTeamForMatch
 import view.team.TeamDetailActivity
 import view.team.ui.TeamRequestMatchFragment
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MatchDetails : AppCompatActivity(){
+class MatchDetails : AppCompatActivity(), SearchTeamForMatch.OnFragmentInteractionListener {
+
+    override fun onFragmentInteraction(teamId: String,teamLogo:String,teamName:String) {
+        Log.d("onFragmentInteraction",teamId)
+        Log.d("onFragmentInteraction",teamLogo)
+
+        val intent = Intent()
+        intent.putExtra("teamId",teamId)
+        intent.putExtra("teamLogo",teamLogo)
+        intent.putExtra("teamName",teamName)
+        setResult(Activity.RESULT_OK, intent)
+
+
+    }
 
     lateinit var matchType:String
     lateinit var ballType:String
@@ -84,6 +98,23 @@ class MatchDetails : AppCompatActivity(){
     //saveMatch Button Click Listener
         send_challenge_request_button_match_details.setOnClickListener {
             sendRequestForMatch()
+        }
+
+
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+
+        val teamData=intent.extras
+        if(teamData!==null)
+        {
+            val teamId=teamData.getString("teamId")
+            val teamLogo=teamData.getString("teamLogo")
+            Log.d("Select Team Activity",teamId)
+        }else{
+            Log.d("Select Team Activity","  NULL")
         }
 
 
