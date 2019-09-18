@@ -34,10 +34,10 @@ class TeamAvailableFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
     private var mAuth: FirebaseAuth? = null
     val groupAdapter = GroupAdapter<ViewHolder>().apply { spanCount = 2 }
-    val SQUAD_RC = 1
     lateinit var team_Id: String
     lateinit var team_name: String
     lateinit var team_logo: String
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -88,32 +88,6 @@ class TeamAvailableFragment : Fragment() {
     }
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        Log.d("XXXX_AvailableTeams_F", "onActivityResult called")
-
-        if (data != null && resultCode == Activity.RESULT_OK) {
-            when (requestCode) {
-                SQUAD_RC -> {
-                    val bundle = data.extras
-                    val squadList = bundle.getStringArrayList("list") as ArrayList<String>
-                    toast("Fragment_OnActivityResult")
-                    listener?.onFragmentInteraction(team_Id, team_logo, team_name,squadList)
-                    activity?.onBackPressed()
-
-                }
-            }
-
-        }
-    }
-
-    //Launch SelectSquadActivity
-    private fun selectSquadForMatch(teamId: String) {
-        val intent = Intent(activity, SelectSquadActivity::class.java)
-        intent.putExtra("teamId", teamId)
-        this.startActivityForResult(intent, SQUAD_RC)
-    }
-
     fun selectTeam(view: View, position: Int) {
         toast("select Team")
         val card = view as MaterialCardView
@@ -133,7 +107,6 @@ class TeamAvailableFragment : Fragment() {
                     team_Id = item.team_Id
                     team_name = item.teamFullName
                     team_logo = item.teamLogo
-                    selectSquadForMatch(team_Id)
                     /**
                     val teamLogo = item.teamLogo
                     val teamName = item.teamFullName
@@ -170,7 +143,7 @@ class TeamAvailableFragment : Fragment() {
     }
 
     interface OnFragmentInteractionListener {
-        fun onFragmentInteraction(teamId: String, teamLogo: String, teamName: String,teamSquad:ArrayList<String>)
+        fun onFragmentInteraction(teamId: String, teamLogo: String, teamName: String)
     }
 
 

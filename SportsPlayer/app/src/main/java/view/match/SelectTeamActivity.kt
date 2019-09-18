@@ -16,12 +16,11 @@ class SelectTeamActivity : AppCompatActivity(),
     TeamAvailableFragment.OnFragmentInteractionListener,
     SearchTeamForMatch.OnFragmentInteractionListener {
 
-    override fun onFragmentInteraction(teamId: String,teamLogo:String,teamName:String,teamSquad:ArrayList<String>) {
+    override fun onFragmentInteraction(teamId: String,teamLogo:String,teamName:String) {
         Log.d("onFragmentInteraction",teamId)
         Log.d("onFragmentInteraction",teamLogo)
 
         val intent = Intent()
-        intent.putStringArrayListExtra("teamSquad",teamSquad)
         intent.putExtra("teamId",teamId)
         intent.putExtra("teamLogo",teamLogo)
         intent.putExtra("teamName",teamName)

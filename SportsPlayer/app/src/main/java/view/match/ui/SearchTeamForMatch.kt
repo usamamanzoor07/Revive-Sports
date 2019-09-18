@@ -37,7 +37,6 @@ class SearchTeamForMatch : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
     private var firebaseDatabase: FirebaseDatabase? = null
     lateinit var ref: DatabaseReference
-    val SQUAD_RC = 1
     lateinit var team_Id: String
     lateinit var team_name: String
     lateinit var team_logo: String
@@ -85,36 +84,9 @@ class SearchTeamForMatch : Fragment() {
     }
     interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onFragmentInteraction(teamId:String,teamLogo:String,teamName:String,teamSquad:ArrayList<String>)
+        fun onFragmentInteraction(teamId:String,teamLogo:String,teamName:String)
     }
 
-
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        Log.d("XXXX_AvailableTeams_F", "onActivityResult called")
-
-        if (data != null && resultCode == Activity.RESULT_OK)
-            when (requestCode) {
-                SQUAD_RC -> {
-                    val bundle = data.extras
-                    val squadList = bundle.getStringArrayList("list") as ArrayList<String>
-                    toast("Fragment_OnActivityResult")
-                    listener?.onFragmentInteraction(team_Id, team_logo, team_name,squadList)
-                    activity?.onBackPressed()
-
-                }
-            }
-    }
-
-
-
-    //Launch SelectSquadActivity
-    private fun selectSquadForMatch(teamId: String) {
-        val intent = Intent(activity,SelectSquadActivity::class.java)
-        intent.putExtra("teamId", teamId)
-        this.startActivityForResult(intent, SQUAD_RC)
-    }
 
 
 
@@ -165,7 +137,6 @@ class SearchTeamForMatch : Fragment() {
                                         team_Id = model.teamId
                                         team_name = model.teamName
                                         team_logo = model.teamLogo!!
-                                        selectSquadForMatch(team_Id)
 
                                         /**
                                         val teamLogo = item.teamLogo

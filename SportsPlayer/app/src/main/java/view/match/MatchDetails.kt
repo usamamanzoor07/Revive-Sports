@@ -1,7 +1,9 @@
 package view.match
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,6 +11,8 @@ import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sportsplayer.R
 import com.google.firebase.database.FirebaseDatabase
+import com.pawegio.kandroid.startActivityForResult
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.match_details_layout.*
 import model.Match
 import model.MatchInvite
@@ -41,7 +45,7 @@ class MatchDetails : AppCompatActivity(){
 
         //Click Listener for Team_A and Team_B
       //  team_A_StartMatchActivity.setOnClickListener { selectTeamA() }
-        team_B_Match_Details.setOnClickListener {  }
+        team_B_Match_Details.setOnClickListener { startActivityForResult<SelectTeamActivity>(team_B) }
 
         //RadioGroup Click Listener
         matchType_radio_group.setOnCheckedChangeListener { _, checkedId ->
@@ -199,4 +203,41 @@ private fun sendRequestForMatch() {
 
 
     }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode== Activity.RESULT_CANCELED)
+        {Log.d("resultCode","canceled")}
+        if (data != null && resultCode == Activity.RESULT_OK)
+        {
+            when(requestCode)
+            {
+                team_B->{
+                    val team2_id = data.getStringExtra("teamId")
+                    val team2_logo = data.getStringExtra("teamLogo")
+                    val team2_Name = data.getStringExtra("teamName")
+                    Log.d("MatchDetails_Team_B",team2_id)
+                    if (team2_id.isNotEmpty() && team2_logo.isNotEmpty() && team2_Name.isNotEmpty() )
+                    {
+                        team_B_id=team2_id
+                        team_B_Logo=team2_logo
+                        team_B_Name=team2_Name
+                        Picasso.get().load(team2_logo).into(team_B_Match_Details)
+                        selected_Team_B_Name_Match_Details.text=team2_Name
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+    companion object{
+        const val team_B=2
+    }
+
 }
